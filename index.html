@@ -4,31 +4,30 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="BGTech Store: smartphones, tablets, MacBooks, notebooks, wearables e acessórios sob encomenda, com atendimento consultivo, 5% de desconto no Pix e parcelamento em até 12x." />
-  <meta name="theme-color" content="#06162c" />
-  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#ffffff" />
   <meta name="robots" content="index,follow" />
 
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="pt_BR" />
   <meta property="og:site_name" content="BGTech Store" />
-  <meta property="og:title" content="BGTech Store | Tecnologia sob encomenda" />
-  <meta property="og:description" content="Tecnologia sob encomenda com atendimento consultivo, categorias amplas e condições facilitadas para comprar com clareza." />
+  <meta property="og:title" content="BGTech Store | Tecnologia escolhida para a sua rotina" />
+  <meta property="og:description" content="Tecnologia sob encomenda com atendimento consultivo para você escolher melhor." />
   <meta property="og:image" content="assets/og-bgtech.png" />
 
-  <title>BGTech Store | Tecnologia certa para a sua rotina</title>
+  <title>BGTech Store | Tecnologia escolhida para a sua rotina</title>
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
   <link rel="stylesheet" href="styles.css" />
 
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "Store",
-    "name": "BGTech Store",
-    "description": "Tecnologia sob encomenda com atendimento consultivo, com smartphones, tablets, MacBooks, notebooks, wearables e acessórios.",
-    "telephone": "+55 11 92019-3443",
-    "sameAs": ["https://www.instagram.com/bgtechstore/"],
-    "url": "https://bgtechstore.com.br/"
+    "@context":"https://schema.org",
+    "@type":"Store",
+    "name":"BGTech Store",
+    "description":"Tecnologia sob encomenda com atendimento consultivo.",
+    "telephone":"+55 11 92019-3443",
+    "sameAs":["https://www.instagram.com/bgtechstore/"],
+    "url":"https://bgtech-store.vercel.app/"
   }
   </script>
 </head>
@@ -37,257 +36,230 @@
 
   <header class="site-header" id="topo">
     <a class="brand" href="#topo" aria-label="BGTech Store — início">
-      <img src="assets/logo-bgtech-web.png" alt="BGTech Store" width="188" height="74" />
+      <img src="assets/logo-bgtech-web.png" alt="BGTech Store" width="164" height="64" />
     </a>
 
     <nav class="desktop-nav" aria-label="Navegação principal">
-      <a href="#categorias">Categorias</a>
-      <a href="#produtos">Destaques</a>
+      <a href="#categorias">Produtos</a>
+      <a href="#perfis">Para sua rotina</a>
       <a href="#como-comprar">Como comprar</a>
-      <a href="#vantagens">Vantagens</a>
+      <a href="#entregas">Entregas</a>
+      <a href="#sobre">Sobre</a>
     </nav>
 
-    <a class="btn btn-small" data-wa="Olá BGTech Store! Quero consultar um produto." href="#">Falar no WhatsApp</a>
-    <button class="menu-btn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
-      <span></span><span></span>
-    </button>
+    <a class="header-cta" data-wa="Olá BGTech Store! Quero encontrar a tecnologia ideal para a minha rotina." href="#">Falar no WhatsApp</a>
+    <button class="menu-btn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
   </header>
 
-  <nav class="mobile-menu" id="mobile-menu" aria-label="Navegação móvel" hidden>
-    <a href="#categorias">Categorias</a>
-    <a href="#produtos">Destaques</a>
+  <nav class="mobile-menu" id="mobile-menu" hidden aria-label="Navegação móvel">
+    <a href="#categorias">Produtos</a>
+    <a href="#perfis">Para sua rotina</a>
     <a href="#como-comprar">Como comprar</a>
-    <a href="#vantagens">Vantagens</a>
-    <a class="mobile-wa" data-wa="Olá BGTech Store! Quero consultar um produto." href="#">Falar no WhatsApp</a>
+    <a href="#entregas">Entregas</a>
+    <a href="#sobre">Sobre</a>
+    <a class="mobile-wa" data-wa="Olá BGTech Store! Quero encontrar a tecnologia ideal para a minha rotina." href="#">Falar no WhatsApp</a>
   </nav>
 
   <main id="conteudo">
-    <section class="cinematic" id="experiencia" aria-labelledby="cinematic-title">
-      <div class="cinematic-sticky">
-        <div class="cinematic-bg" aria-hidden="true">
-          <span class="cine-glow cine-glow-a"></span>
-          <span class="cine-glow cine-glow-b"></span>
-          <span class="cine-grid"></span>
-          <span class="cine-grain"></span>
+    <section class="hero-clean" aria-labelledby="hero-title">
+      <div class="hero-copy reveal">
+        <span class="eyebrow">BGTECH STORE · TECNOLOGIA SOB ENCOMENDA</span>
+        <h1 id="hero-title">Tecnologia escolhida<br>para a sua rotina.</h1>
+        <p>Smartphones, tablets, MacBooks, notebooks e acessórios com atendimento consultivo para você comprar com mais clareza.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#categorias">Ver produtos</a>
+          <a class="btn btn-ghost" data-wa="Olá BGTech Store! Quero ajuda para escolher o produto ideal." href="#">Falar com a BGTech</a>
         </div>
+      </div>
 
-        <div class="cine-topline">
-          <span>BGTECH STORE</span>
-          <span>EXPERIENCE / 01</span>
-        </div>
+      <div class="hero-product" aria-hidden="true">
+        <span class="hero-halo"></span>
+        <img class="hero-product-img" src="https://www.apple.com/v/macbook-air/z/images/overview/hero/hero_static__c9sislzzicq6_large.png" data-fallback-src="assets/macbook-fallback.png" alt="" />
+      </div>
 
-        <div class="cine-copy cine-copy-a">
-          <span class="cine-eyebrow">CURADORIA EM TECNOLOGIA</span>
-          <h1 id="cinematic-title">Tecnologia certa para a sua rotina.</h1>
-          <p>Smartphones, tablets, MacBooks, notebooks e acessórios com uma proposta mais clara, útil e consultiva.</p>
-        </div>
-
-        <div class="cine-copy cine-copy-b" aria-hidden="true">
-          <span class="cine-eyebrow">ESCOLHAS QUE FAZEM SENTIDO</span>
-          <h2>Mobilidade. Performance. Produtividade.</h2>
-          <p>Uma seleção pensada para estudo, trabalho e dia a dia — com menos foco em marcas e mais foco no que realmente combina com você.</p>
-        </div>
-
-        <div class="cine-copy cine-copy-c" aria-hidden="true">
-          <span class="cine-eyebrow">SEU PRÓXIMO DISPOSITIVO</span>
-          <h2>Escolha melhor. Compre com segurança.</h2>
-          <div class="cine-actions">
-            <a class="btn btn-cinematic" data-wa="Olá BGTech Store! Quero receber uma cotação." href="#">Pedir cotação</a>
-            <a class="cine-link" href="#produtos">Ver destaques <span>↘</span></a>
-          </div>
-          <div class="cine-proof" aria-label="Condições da BGTech Store">
-            <span><strong>Até 12x</strong> no cartão</span>
-            <span><strong>5% OFF</strong> no Pix</span>
-            <span><strong>Sob encomenda</strong></span>
-          </div>
-        </div>
-
-        <div class="device-stage" aria-hidden="true">
-          <div class="device-shadow"></div>
-          <div class="showcase-device">
-            <span class="showcase-halo" aria-hidden="true"></span>
-            <img loading="eager" src="assets/hero-showcase.png" alt="Composição premium com smartphone, tablet, MacBook e notebook" />
-            <span class="showcase-chip chip-a">SMARTPHONES + TABLETS</span>
-            <span class="showcase-chip chip-b">MACBOOKS + NOTEBOOKS</span>
-          </div>
-        </div>
-
-        <div class="scroll-cue" aria-hidden="true">
-          <span>ROLE PARA EXPLORAR</span>
-          <i></i>
-        </div>
-        <div class="cine-progress" aria-hidden="true"><span></span></div>
-        <div class="cine-exit-wash" aria-hidden="true"></div>
+      <div class="hero-meta" aria-label="Condições da loja">
+        <span><strong>5% OFF</strong> no Pix</span>
+        <span><strong>Até 12x</strong> no cartão</span>
+        <span><strong>Sob encomenda</strong> com consulta de disponibilidade</span>
       </div>
     </section>
 
-    <section class="trust-strip" aria-label="Diferenciais rápidos">
-      <span>Compra segura</span><i></i><span>Produtos selecionados</span><i></i><span>Atendimento consultivo</span><i></i><span>Até 12x + 5% no Pix</span>
-    </section>
+    <section class="story" id="experiencia" aria-label="Experiência BGTech">
+      <div class="story-sticky">
+        <div class="story-bg"><span class="story-glow glow-a"></span><span class="story-glow glow-b"></span></div>
 
-    <section class="section categories-section" id="categorias">
-      <div class="section-heading reveal">
-        <span class="eyebrow">NOSSAS CATEGORIAS</span>
-        <h2>Encontre o que você precisa.</h2>
-        <p>Uma seleção organizada por uso e categoria, com orientação para você comparar opções e escolher com mais segurança.</p>
-      </div>
-
-      <div class="category-grid">
-        <a class="category-card reveal" data-wa="Olá! Quero consultar opções de smartphones." href="#">
-          <span class="category-icon" aria-hidden="true">◫</span><div><strong>Smartphones</strong><small>Uso diário, câmera, bateria e desempenho</small></div><b>→</b>
-        </a>
-        <a class="category-card reveal" data-wa="Olá! Quero consultar opções de tablets." href="#">
-          <span class="category-icon" aria-hidden="true">▭</span><div><strong>Tablets</strong><small>Estudo, leitura, mídia e produtividade</small></div><b>→</b>
-        </a>
-        <a class="category-card reveal" data-wa="Olá! Quero consultar opções de MacBook." href="#">
-          <span class="category-icon" aria-hidden="true">⌘</span><div><strong>MacBooks</strong><small>Mobilidade, autonomia e integração</small></div><b>→</b>
-        </a>
-        <a class="category-card reveal" data-wa="Olá! Quero consultar opções de notebooks." href="#">
-          <span class="category-icon" aria-hidden="true">▣</span><div><strong>Notebooks</strong><small>Trabalho, estudo e versatilidade</small></div><b>→</b>
-        </a>
-        <a class="category-card reveal" data-wa="Olá! Quero consultar relógios e wearables." href="#">
-          <span class="category-icon" aria-hidden="true">⌚</span><div><strong>Wearables</strong><small>Relógios inteligentes e pulseiras</small></div><b>→</b>
-        </a>
-        <a class="category-card reveal" data-wa="Olá! Quero consultar acessórios." href="#">
-          <span class="category-icon" aria-hidden="true">＋</span><div><strong>Acessórios</strong><small>Cabos, adaptadores, capas e complementos</small></div><b>→</b>
-        </a>
-      </div>
-    </section>
-
-    <section class="section product-section" id="produtos">
-      <div class="section-heading reveal">
-        <span class="eyebrow">DESTAQUES</span>
-        <h2>Produtos selecionados para você.</h2>
-        <p>Uma vitrine objetiva, com imagens equilibradas e categorias claras. Modelos, configurações e valores são confirmados no atendimento.</p>
-      </div>
-
-      <div class="product-grid">
-        <article class="product-card reveal">
-          <div class="product-image product-image-dark">
-            <img loading="lazy" src="assets/product-macbook-v31.png" alt="MacBook" />
-          </div>
-          <div class="product-content">
-            <div class="product-topline"><span class="tag">MacBooks</span><span class="status">Sob consulta</span></div>
-            <h3>MacBooks</h3>
-            <p>Opções para quem prioriza mobilidade, autonomia e produtividade em uma experiência mais integrada.</p>
-            <a class="product-link" data-wa="Olá! Quero consultar opções de MacBook." href="#">Consultar MacBooks <span>→</span></a>
-          </div>
-        </article>
-
-        <article class="product-card reveal">
-          <div class="product-image product-image-dark">
-            <img loading="lazy" src="assets/product-notebook-v31.png" alt="Notebook" />
-          </div>
-          <div class="product-content">
-            <div class="product-topline"><span class="tag">Notebooks</span><span class="status">Sob consulta</span></div>
-            <h3>Notebooks</h3>
-            <p>Alternativas para estudo, trabalho, multitarefa e produtividade, com diferentes faixas de desempenho.</p>
-            <a class="product-link" data-wa="Olá! Quero consultar opções de notebooks." href="#">Consultar notebooks <span>→</span></a>
-          </div>
-        </article>
-
-        <article class="product-card reveal">
-          <div class="product-image product-image-dark">
-            <img loading="lazy" src="assets/product-smartphone-v31.png" alt="Smartphone" />
-          </div>
-          <div class="product-content">
-            <div class="product-topline"><span class="tag">Smartphones</span><span class="status">Sob consulta</span></div>
-            <h3>Smartphones</h3>
-            <p>Modelos para diferentes perfis de uso, com foco em câmera, bateria, fluidez e custo-benefício.</p>
-            <a class="product-link" data-wa="Olá! Quero consultar opções de smartphones." href="#">Consultar smartphones <span>→</span></a>
-          </div>
-        </article>
-
-        <article class="product-card reveal">
-          <div class="product-image product-image-dark">
-            <img loading="lazy" src="assets/product-tablet-v31.png" alt="Tablet" />
-          </div>
-          <div class="product-content">
-            <div class="product-topline"><span class="tag">Tablets</span><span class="status">Sob consulta</span></div>
-            <h3>Tablets</h3>
-            <p>Uma categoria versátil para leitura, aulas, consumo de mídia e produtividade com tela maior.</p>
-            <a class="product-link" data-wa="Olá! Quero consultar opções de tablets." href="#">Consultar tablets <span>→</span></a>
-          </div>
-        </article>
-      </div>
-
-      <div class="catalog-cta reveal">
-        <div>
-          <span class="eyebrow">PROCURA OUTRA CONFIGURAÇÃO?</span>
-          <h3>Conte o que você precisa e receba uma cotação personalizada.</h3>
-          <p>Modelo, tela, armazenamento, uso esperado, orçamento ou até dúvida entre notebook, MacBook, tablet e smartphone.</p>
+        <div class="story-copy story-copy-1">
+          <span class="eyebrow eyebrow-light">ESCOLHA COM CONTEXTO</span>
+          <h2>Menos disputa de marcas.<br>Mais sentido para você.</h2>
+          <p>Seu uso, sua rotina e seu investimento vêm antes da ficha técnica.</p>
         </div>
-        <a class="btn btn-light" data-wa="Olá! Estou procurando um produto específico e gostaria de uma cotação personalizada." href="#">Solicitar cotação</a>
+
+        <div class="story-copy story-copy-2">
+          <span class="eyebrow eyebrow-light">MOBILIDADE + PERFORMANCE</span>
+          <h2>Estudo. Trabalho.<br>Criação. Dia a dia.</h2>
+          <p>Do notebook ao smartphone, cada categoria entra onde realmente agrega.</p>
+        </div>
+
+        <div class="story-copy story-copy-3">
+          <span class="eyebrow eyebrow-light">COMPRA CONSULTIVA</span>
+          <h2>Escolha melhor.<br>Compre com segurança.</h2>
+          <div class="story-actions">
+            <a class="btn btn-light" data-wa="Olá BGTech Store! Quero uma recomendação personalizada." href="#">Quero uma recomendação</a>
+            <a class="story-link" href="#categorias">Explorar categorias <span>↘</span></a>
+          </div>
+        </div>
+
+        <div class="story-device-stage" aria-hidden="true">
+          <figure class="story-device device-mac">
+            <img src="https://www.apple.com/v/macbook-air/z/images/overview/hero/hero_static__c9sislzzicq6_large.png" data-fallback-src="assets/macbook-fallback.png" alt="" />
+          </figure>
+          <figure class="story-device device-phone">
+            <img src="https://www.apple.com/v/iphone-17/g/images/overview/welcome/hero_startframe__e9e7pcnguyqi_xlarge.jpg" data-fallback-src="assets/smartphone-fallback.png" alt="" />
+          </figure>
+          <figure class="story-device device-tablet">
+            <img src="https://www.apple.com/br/ipad-11/images/overview/design/fan__vnl85mt3xzm6_large.jpg" data-fallback-src="assets/tablet-fallback.png" alt="" />
+          </figure>
+        </div>
+
+        <div class="story-progress" aria-hidden="true"><span></span></div>
+      </div>
+    </section>
+
+    <section class="section intro-section" id="categorias">
+      <div class="section-title center reveal">
+        <span class="eyebrow">EXPLORE POR CATEGORIA</span>
+        <h2>Encontre o que faz sentido.</h2>
+        <p>Uma vitrine mais simples para chegar mais rápido ao dispositivo certo.</p>
+      </div>
+
+      <div class="editorial-grid">
+        <article class="editorial-card editorial-large reveal">
+          <div class="editorial-copy">
+            <span class="card-kicker">MOBILIDADE E PRODUTIVIDADE</span>
+            <h3>MacBooks e notebooks.</h3>
+            <p>Para estudar, trabalhar, criar e levar sua rotina com você.</p>
+            <a data-wa="Olá! Quero consultar MacBooks e notebooks." href="#">Explorar opções <span>→</span></a>
+          </div>
+          <div class="editorial-media media-soft-blue">
+            <img src="https://www.apple.com/v/macbook-air/z/images/overview/hero/hero_static__c9sislzzicq6_large.png" data-fallback-src="assets/macbook-fallback.png" alt="MacBook Air" />
+          </div>
+        </article>
+
+        <article class="editorial-card reveal">
+          <div class="editorial-copy">
+            <span class="card-kicker">CÂMERA + CONECTIVIDADE</span>
+            <h3>Smartphones.</h3>
+            <p>Opções para uso diário, fotografia, performance e autonomia.</p>
+            <a data-wa="Olá! Quero consultar opções de smartphones." href="#">Ver smartphones <span>→</span></a>
+          </div>
+          <div class="editorial-media media-dark">
+            <img src="https://i02.appmifile.com/mi-com-product/fly-birds/poco-x8-pro/pc/pc30_green_pic1.png?q=100" data-fallback-src="assets/smartphone-fallback.png" alt="Smartphone" />
+          </div>
+        </article>
+
+        <article class="editorial-card reveal">
+          <div class="editorial-copy">
+            <span class="card-kicker">TELA MAIOR, ROTINA LEVE</span>
+            <h3>Tablets.</h3>
+            <p>Estudo, leitura, mídia e produtividade em um formato versátil.</p>
+            <a data-wa="Olá! Quero consultar opções de tablets." href="#">Ver tablets <span>→</span></a>
+          </div>
+          <div class="editorial-media media-sky">
+            <img src="https://www.apple.com/br/ipad-11/images/overview/design/fan__vnl85mt3xzm6_large.jpg" data-fallback-src="assets/tablet-fallback.png" alt="Tablet" />
+          </div>
+        </article>
+
+        <article class="editorial-card editorial-wide reveal">
+          <div class="editorial-copy">
+            <span class="card-kicker">COMPLEMENTE SUA EXPERIÊNCIA</span>
+            <h3>Wearables e acessórios.</h3>
+            <p>Relógios, fones, cabos, adaptadores, capas e outros eletrônicos selecionados.</p>
+            <a data-wa="Olá! Quero consultar wearables e acessórios." href="#">Consultar opções <span>→</span></a>
+          </div>
+          <div class="accessory-art" aria-hidden="true">
+            <span class="ring ring-1"></span><span class="ring ring-2"></span><span class="ring ring-3"></span>
+            <div class="accessory-pill">Wearables</div><div class="accessory-pill second">Acessórios</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section profile-section" id="perfis">
+      <div class="section-title reveal">
+        <span class="eyebrow">POR PERFIL DE USO</span>
+        <h2>Comece pela sua necessidade.</h2>
+      </div>
+
+      <div class="profile-tabs" role="tablist" aria-label="Perfis de uso">
+        <button class="profile-tab active" data-profile="estudo" role="tab" aria-selected="true">Estudo</button>
+        <button class="profile-tab" data-profile="trabalho" role="tab" aria-selected="false">Trabalho</button>
+        <button class="profile-tab" data-profile="mobilidade" role="tab" aria-selected="false">Mobilidade</button>
+        <button class="profile-tab" data-profile="performance" role="tab" aria-selected="false">Performance</button>
+      </div>
+
+      <div class="profile-panel reveal" id="profile-panel">
+        <div class="profile-copy">
+          <span class="profile-number">01</span>
+          <h3 id="profile-title">Para estudar com mais organização.</h3>
+          <p id="profile-text">Tablets e notebooks ajudam em pesquisas, aulas, documentos, apresentações e multitarefa sem complicar a rotina.</p>
+          <a id="profile-link" data-wa="Olá! Quero uma recomendação para estudo." href="#">Receber recomendação <span>→</span></a>
+        </div>
+        <div class="profile-visual" aria-hidden="true">
+          <span class="profile-orbit"></span>
+          <img id="profile-image" src="https://www.apple.com/br/ipad-11/images/overview/design/fan__vnl85mt3xzm6_large.jpg" data-fallback-src="assets/tablet-fallback.png" alt="" />
+        </div>
       </div>
     </section>
 
     <section class="section section-soft" id="como-comprar">
-      <div class="section-heading reveal">
+      <div class="section-title center reveal">
         <span class="eyebrow">COMO COMPRAR</span>
-        <h2>Do pedido à entrega, sem complicação.</h2>
+        <h2>Simples do início ao fim.</h2>
+        <p>Atendimento direto, cotação clara e acompanhamento do pedido.</p>
       </div>
 
-      <div class="steps">
-        <article class="step reveal"><span>01</span><h3>Chame no WhatsApp</h3><p>Informe o produto, modelo, cor e capacidade que você procura.</p></article>
-        <article class="step reveal"><span>02</span><h3>Receba a cotação</h3><p>Confirmamos disponibilidade, valor, prazo estimado e formas de pagamento.</p></article>
-        <article class="step reveal"><span>03</span><h3>Confirme o pedido</h3><p>Escolha a condição mais adequada e confirme sua encomenda.</p></article>
-        <article class="step reveal"><span>04</span><h3>Acompanhe a entrega</h3><p>O processo é acompanhado até a entrega combinada com você.</p></article>
-      </div>
-    </section>
-
-    <section class="section" id="vantagens">
-      <div class="benefits-layout">
-        <div class="benefits-copy reveal">
-          <span class="eyebrow">POR QUE BGTECH?</span>
-          <h2>Mais orientação. Menos compra no escuro.</h2>
-          <p>A proposta é entender seu uso e indicar alternativas coerentes com sua rotina, tipo de trabalho e orçamento, sem transformar a conversa em uma disputa de marcas.</p>
-          <a class="text-link" data-wa="Olá! Quero ajuda para escolher o produto ideal para mim." href="#">Quero ajuda para escolher <span>→</span></a>
-        </div>
-
-        <div class="benefits-grid">
-          <article class="benefit reveal"><span>✓</span><h3>Atendimento consultivo</h3><p>Ajuda real para comparar categorias e decidir com mais segurança.</p></article>
-          <article class="benefit reveal"><span>5%</span><h3>Desconto no Pix</h3><p>Condição especial para pagamento à vista.</p></article>
-          <article class="benefit reveal"><span>12x</span><h3>Parcelamento</h3><p>Até 12x no cartão, conforme a condição apresentada.</p></article>
-          <article class="benefit reveal"><span>↗</span><h3>Sob encomenda</h3><p>Mais categorias, mais opções e consulta de disponibilidade por modelo.</p></article>
-        </div>
+      <div class="steps-editorial">
+        <article class="step-card reveal"><span>01</span><h3>Conte o que procura.</h3><p>Produto, uso, orçamento ou até uma dúvida entre categorias.</p></article>
+        <article class="step-card reveal"><span>02</span><h3>Receba a cotação.</h3><p>Confirmamos disponibilidade, configuração, valor e condição de pagamento.</p></article>
+        <article class="step-card reveal"><span>03</span><h3>Confirme a encomenda.</h3><p>Você escolhe a condição adequada e formaliza o pedido.</p></article>
+        <article class="step-card reveal"><span>04</span><h3>Acompanhe a entrega.</h3><p>Preparação, conferência, embalagem e entrega ou rastreamento.</p></article>
       </div>
     </section>
 
-    <section class="section faq-section" aria-labelledby="faq-title">
-      <div class="section-heading reveal">
-        <span class="eyebrow">DÚVIDAS RÁPIDAS</span>
-        <h2 id="faq-title">Antes de chamar, você já pode saber.</h2>
+    <section class="section confidence-section" id="sobre">
+      <div class="confidence-copy reveal">
+        <span class="eyebrow">POR QUE BGTECH STORE</span>
+        <h2>Mais orientação.<br>Menos compra no escuro.</h2>
+        <p>A BGTech Store trabalha principalmente sob encomenda. A proposta é entender sua rotina e apresentar alternativas coerentes, sem empurrar um modelo só porque ele é mais caro ou mais famoso.</p>
+        <a class="text-link" data-wa="Olá! Quero ajuda para escolher o produto ideal." href="#">Quero ajuda para escolher <span>→</span></a>
       </div>
 
-      <div class="faq-list">
-        <details class="faq-item reveal">
-          <summary>Os produtos ficam em estoque?</summary>
-          <p>A operação é principalmente sob encomenda. A disponibilidade é consultada no momento do atendimento.</p>
-        </details>
-        <details class="faq-item reveal">
-          <summary>Posso parcelar?</summary>
-          <p>Sim. Há opção de parcelamento em até 12x no cartão, de acordo com a condição apresentada na cotação.</p>
-        </details>
-        <details class="faq-item reveal">
-          <summary>Tem desconto no Pix?</summary>
-          <p>Sim. A BGTech Store trabalha com 5% de desconto para pagamento via Pix.</p>
-        </details>
-        <details class="faq-item reveal">
-          <summary>Não sei qual categoria escolher. Vocês ajudam?</summary>
-          <p>Sim. Você pode explicar seu uso, orçamento e prioridades para receber orientação entre smartphone, tablet, MacBook, notebook, wearable ou acessório.</p>
-        </details>
+      <div class="confidence-grid reveal">
+        <article><strong>5%</strong><span>desconto no Pix</span></article>
+        <article><strong>12x</strong><span>parcelamento no cartão</span></article>
+        <article><strong>1:1</strong><span>atendimento consultivo</span></article>
+        <article><strong>↗</strong><span>produtos sob encomenda</span></article>
       </div>
     </section>
 
-    <section class="contact-section" id="contato">
-      <div class="contact-card reveal">
-        <img src="assets/logo-bgtech-web.png" alt="BGTech Store" width="188" height="74" />
-        <div>
-          <span class="eyebrow">FALE COM A BGTECH STORE</span>
-          <h2>Seu próximo dispositivo começa por uma escolha mais inteligente.</h2>
-          <p>Envie uma mensagem e receba uma cotação personalizada para o que faz sentido na sua rotina.</p>
+    <section class="deliveries" id="entregas">
+      <div class="deliveries-inner reveal">
+        <span class="eyebrow eyebrow-light">BASTIDORES E ENTREGAS</span>
+        <h2>Do pedido à entrega, cada etapa importa.</h2>
+        <p>Preparação, conferência, embalagem e entrega fazem parte da experiência BGTech Store.</p>
+        <div class="deliveries-flow" aria-label="Fluxo de entrega">
+          <span>Preparação</span><i>→</i><span>Conferência</span><i>→</i><span>Embalagem</span><i>→</i><span>Entrega</span>
         </div>
-        <a class="btn btn-light" data-wa="Olá BGTech Store! Quero receber uma cotação." href="#">Chamar no WhatsApp</a>
+        <a class="btn btn-light" href="https://instagram.com/bgtechstore" target="_blank" rel="noopener noreferrer">Ver bastidores no Instagram</a>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="final-cta-inner reveal">
+        <img src="assets/logo-bgtech-web.png" alt="BGTech Store" width="180" height="70" />
+        <h2>Encontre a opção ideal para o seu perfil.</h2>
+        <p>Tecnologia escolhida para a sua rotina.</p>
+        <a class="btn btn-primary" data-wa="Olá BGTech Store! Quero fazer uma cotação." href="#">Fazer uma cotação</a>
       </div>
     </section>
   </main>
@@ -295,23 +267,23 @@
   <footer>
     <div class="footer-main">
       <div class="footer-brand">
-        <img src="assets/logo-bgtech-web.png" alt="BGTech Store" width="188" height="74" />
-        <p>Tecnologia sob encomenda com atendimento consultivo, categorias amplas e foco na escolha certa.</p>
+        <img src="assets/logo-bgtech-web.png" alt="BGTech Store" width="170" height="66" />
+        <p>Produtos novos e adquiridos sob encomenda.</p>
       </div>
       <div class="footer-links">
-        <a href="#categorias">Categorias</a>
+        <a href="#categorias">Produtos</a>
         <a href="#como-comprar">Como comprar</a>
-        <a href="https://instagram.com/bgtechstore" target="_blank" rel="noopener noreferrer">Instagram @bgtechstore</a>
-        <a data-wa="Olá BGTech Store!" href="#">WhatsApp (11) 92019-3443</a>
+        <a href="https://instagram.com/bgtechstore" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a data-wa="Olá BGTech Store!" href="#">WhatsApp</a>
       </div>
     </div>
     <div class="footer-legal">
       <small>© <span id="year"></span> BGTech Store. Todos os direitos reservados.</small>
-      <small>Produtos, preços e disponibilidade sujeitos a consulta. Marcas citadas pertencem aos seus respectivos proprietários.</small>
+      <small>Preços, cores, configurações e disponibilidade são confirmados na cotação. Marcas pertencem aos seus respectivos proprietários.</small>
     </div>
   </footer>
 
-  <a class="whatsapp-fab" data-wa="Olá BGTech Store! Quero receber uma cotação." href="#" aria-label="Falar com a BGTech Store no WhatsApp">
+  <a class="whatsapp-fab" data-wa="Olá BGTech Store! Quero fazer uma cotação." href="#" aria-label="Falar com a BGTech Store no WhatsApp">
     <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.48c-.46-.23-2.7-1.33-3.12-1.48-.42-.15-.73-.23-1.03.23-.3.46-1.18 1.48-1.45 1.79-.27.3-.53.34-.99.11-.46-.23-1.93-.71-3.68-2.27-1.36-1.21-2.28-2.71-2.55-3.17-.27-.46-.03-.71.2-.94.21-.2.46-.53.69-.8.23-.27.3-.46.46-.76.15-.3.08-.57-.04-.8-.11-.23-1.03-2.47-1.41-3.39-.37-.89-.75-.77-1.03-.78h-.88c-.3 0-.8.11-1.22.57-.42.46-1.6 1.56-1.6 3.81s1.64 4.42 1.86 4.73c.23.3 3.22 4.92 7.8 6.9 1.09.47 1.94.75 2.6.96 1.09.35 2.09.3 2.88.18.88-.13 2.7-1.1 3.08-2.17.38-1.07.38-1.98.27-2.17-.11-.19-.42-.3-.88-.53Z"/><path d="M26.7 5.28A14.86 14.86 0 0 0 3.31 23.2L1.2 30.9l7.88-2.07A14.85 14.85 0 0 0 26.7 5.28Zm-10.5 22.1c-2.3 0-4.55-.62-6.5-1.8l-.47-.28-4.68 1.23 1.25-4.56-.3-.47a12.3 12.3 0 1 1 10.7 5.88Z"/></svg>
   </a>
 

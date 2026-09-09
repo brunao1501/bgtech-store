@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bgtechstore.com.br/sitemap.xml
+Sitemap: https://bgtech-store.vercel.app/sitemap.xml
