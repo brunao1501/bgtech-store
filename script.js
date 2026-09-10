@@ -63,6 +63,7 @@ if(story && !reduceMotion){
   const tablet=story.querySelector('.device-tablet');
   const progress=story.querySelector('.story-progress span');
   const stage=story.querySelector('.story-device-stage');
+  if(!mac || !phone || !tablet || !progress || !stage) { /* keep section static if assets are changed */ } else {
   const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
   const smooth=(a,b,v)=>{const t=clamp((v-a)/(b-a));return t*t*(3-2*t)};
   const phase=(i,p)=>{
@@ -91,14 +92,15 @@ if(story && !reduceMotion){
   }
   function request(){if(!ticking){ticking=true;requestAnimationFrame(render)}}
   window.addEventListener('scroll',request,{passive:true});window.addEventListener('resize',request);render();
+  }
 }
 
 // Perfis de uso.
 const profileData={
-  estudo:{number:'01',title:'Para estudar com mais organização.',text:'Tablets e notebooks ajudam em pesquisas, aulas, documentos, apresentações e multitarefa sem complicar a rotina.',message:'Olá! Quero uma recomendação para estudo.',image:'https://www.apple.com/br/ipad-11/images/overview/design/fan__vnl85mt3xzm6_large.jpg',fallback:'assets/tablet-fallback.png'},
-  trabalho:{number:'02',title:'Para trabalhar com mais fluidez.',text:'MacBooks e notebooks entregam mais espaço, conforto e produtividade para documentos, reuniões, planilhas e multitarefa.',message:'Olá! Quero uma recomendação para trabalho.',image:'https://www.apple.com/v/macbook-air/z/images/overview/hero/hero_static__c9sislzzicq6_large.png',fallback:'assets/macbook-fallback.png'},
-  mobilidade:{number:'03',title:'Para levar tudo com você.',text:'Smartphones e tablets equilibram conectividade, autonomia e leveza para quem resolve muita coisa fora da mesa.',message:'Olá! Quero uma recomendação focada em mobilidade.',image:'https://www.apple.com/v/iphone-17/g/images/overview/welcome/hero_startframe__e9e7pcnguyqi_xlarge.jpg',fallback:'assets/smartphone-fallback.png'},
-  performance:{number:'04',title:'Para quem exige mais desempenho.',text:'A configuração ideal depende dos seus aplicativos, volume de multitarefa e tipo de trabalho. A BGTech ajuda a dimensionar sem exagero.',message:'Olá! Quero uma recomendação focada em performance.',image:'https://p1-ofp.static.pub/ShareResource/ww/landing-pages/ideapad/img/lenovo-ideapad-brand-page-product-series-2.png',fallback:'assets/notebook-fallback.png'}
+  estudo:{number:'01',title:'Para estudar com mais organização.',text:'Tablets e notebooks ajudam em pesquisas, aulas, documentos, apresentações e multitarefa sem complicar a rotina.',message:'Olá! Quero uma recomendação para estudo.',image:'assets/tablet-clean-v41.png',fallback:'assets/tablet-clean-v41.png'},
+  trabalho:{number:'02',title:'Para trabalhar com mais fluidez.',text:'MacBook Pro e notebooks entregam mais espaço, conforto e produtividade para documentos, reuniões, planilhas e multitarefa.',message:'Olá! Quero uma recomendação para trabalho.',image:'assets/macbook-fallback.png',fallback:'assets/macbook-fallback.png'},
+  mobilidade:{number:'03',title:'Para levar tudo com você.',text:'Smartphones e tablets equilibram conectividade, autonomia e leveza para quem resolve muita coisa fora da mesa.',message:'Olá! Quero uma recomendação focada em mobilidade.',image:'assets/smartphone-fallback.png',fallback:'assets/smartphone-fallback.png'},
+  performance:{number:'04',title:'Para quem exige mais desempenho.',text:'A configuração ideal depende dos seus aplicativos, volume de multitarefa e tipo de trabalho. A BGTech ajuda a dimensionar sem exagero.',message:'Olá! Quero uma recomendação focada em performance.',image:'assets/notebook-premium-v41.png',fallback:'assets/notebook-premium-v41.png'}
 };
 const tabs=document.querySelectorAll('.profile-tab');
 const profileTitle=document.getElementById('profile-title');
