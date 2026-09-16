@@ -18,6 +18,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="cinematic.css" />
 
   <script type="application/ld+json">
   {
@@ -64,8 +65,8 @@
     <section class="hero-clean" aria-labelledby="hero-title">
       <div class="hero-copy reveal">
         <span class="eyebrow">BGTECH STORE · TECNOLOGIA SOB ENCOMENDA</span>
-        <h1 id="hero-title">Tecnologia escolhida<br>para a sua rotina.</h1>
-        <p>Smartphones, tablets, MacBooks, notebooks e acessórios com atendimento consultivo para você comprar com mais clareza.</p>
+        <h1 id="hero-title">Sua próxima<br>possibilidade<span>.</span></h1>
+        <p>Tecnologia escolhida para a sua rotina. Encontre o seu próximo dispositivo com a orientação de quem entende.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#categorias">Ver produtos</a>
           <a class="btn btn-ghost" data-wa="Olá BGTech Store! Quero ajuda para escolher o produto ideal." href="#">Falar com a BGTech</a>
@@ -73,8 +74,14 @@
       </div>
 
       <div class="hero-product" aria-hidden="true">
+        <span class="hero-word">EXPLORE</span>
+        <div class="hero-scene">
         <span class="hero-halo"></span>
-        <img class="hero-product-img" src="assets/macbook-fallback.png" data-fallback-src="assets/macbook-fallback.png" alt="MacBook Pro" />
+        <img class="hero-product-img" src="assets/macbook-fallback.png" data-fallback-src="assets/macbook-fallback.png" alt="MacBook Pro" fetchpriority="high" />
+        <img class="hero-phone" src="assets/smartphone-fallback.png" alt="" />
+        <img class="hero-tablet" src="assets/tablet-clean-v41.png" alt="" />
+        </div>
+        <span class="hero-caption">ESCOLHAS QUE CONECTAM POSSIBILIDADES</span>
       </div>
 
       <div class="hero-meta" aria-label="Condições da loja">
@@ -90,7 +97,7 @@
 
         <div class="story-copy story-copy-1">
           <span class="eyebrow eyebrow-light">ESCOLHA COM CONTEXTO</span>
-          <h2>Menos disputa de marcas.<br>Mais sentido para você.</h2>
+          <h2>Um universo.<br>O seu ritmo.</h2>
           <p>Seu uso, sua rotina e seu investimento vêm antes da ficha técnica.</p>
         </div>
 
@@ -129,7 +136,7 @@
       <div class="section-title center reveal">
         <span class="eyebrow">EXPLORE POR CATEGORIA</span>
         <h2>Encontre o que faz sentido.</h2>
-        <p>Uma vitrine mais simples para chegar mais rápido ao dispositivo certo.</p>
+        <p>Do primeiro compromisso à próxima grande ideia. Encontre a tecnologia que acompanha você.</p>
       </div>
 
       <div class="editorial-grid">
@@ -195,13 +202,13 @@
       </div>
 
       <div class="profile-tabs" role="tablist" aria-label="Perfis de uso">
-        <button class="profile-tab active" data-profile="estudo" role="tab" aria-selected="true">Estudo</button>
-        <button class="profile-tab" data-profile="trabalho" role="tab" aria-selected="false">Trabalho</button>
-        <button class="profile-tab" data-profile="mobilidade" role="tab" aria-selected="false">Mobilidade</button>
-        <button class="profile-tab" data-profile="performance" role="tab" aria-selected="false">Performance</button>
+        <button class="profile-tab active" id="tab-estudo" aria-controls="profile-panel" tabindex="0" data-profile="estudo" role="tab" aria-selected="true">Estudo</button>
+        <button class="profile-tab" id="tab-trabalho" aria-controls="profile-panel" tabindex="-1" data-profile="trabalho" role="tab" aria-selected="false">Trabalho</button>
+        <button class="profile-tab" id="tab-mobilidade" aria-controls="profile-panel" tabindex="-1" data-profile="mobilidade" role="tab" aria-selected="false">Mobilidade</button>
+        <button class="profile-tab" id="tab-performance" aria-controls="profile-panel" tabindex="-1" data-profile="performance" role="tab" aria-selected="false">Performance</button>
       </div>
 
-      <div class="profile-panel reveal" id="profile-panel">
+      <div class="profile-panel reveal" id="profile-panel" role="tabpanel" aria-labelledby="tab-estudo">
         <div class="profile-copy">
           <span class="profile-number">01</span>
           <h3 id="profile-title">Para estudar com mais organização.</h3>
@@ -282,7 +289,7 @@
       </div>
     </div>
     <div class="footer-legal">
-      <small>© <span id="year"></span> BGTech Store. Todos os direitos reservados.</small>
+      <small>© <span id="year"></span> BGTech Consulting. Todos os direitos reservados.</small>
       <small>Preços, cores, configurações e disponibilidade são confirmados na cotação. Marcas pertencem aos seus respectivos proprietários.</small>
     </div>
   </footer>
@@ -293,5 +300,6 @@
 
   <noscript><div class="noscript">Para usar os links automáticos do WhatsApp, ative o JavaScript. Telefone: (11) 92019-3443.</div></noscript>
   <script src="script.js" defer></script>
+  <script src="cinematic.js" defer></script>
 </body>
 </html>
