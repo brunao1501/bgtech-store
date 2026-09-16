@@ -77,7 +77,10 @@ if(story && !reduceMotion){
     const scrollable=Math.max(1,story.offsetHeight-window.innerHeight);
     const p=clamp(-rect.top/scrollable);
     copies.forEach((c,i)=>{
-      c.style.opacity=phase(i,p).toFixed(3);
+      const alpha=i===0&&p<.03?1:i===2&&p>.98?1:phase(i,p);
+      c.style.opacity=alpha.toFixed(3);
+      c.style.visibility=alpha>.05?"visible":"hidden";
+      c.inert=alpha<=.05;
       const shift=(i===0?-28:i===1?-12:0)*p + (i?22*(1-p):0);
       c.style.transform=window.innerWidth<=720?`translateY(${shift*.45}px)`:`translateY(calc(-50% + ${shift}px))`;
     });
