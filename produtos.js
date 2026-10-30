@@ -19,7 +19,8 @@
 
   const $ = id => document.getElementById(id);
   const brl = v => v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-  const img = p => p.foto ? `assets/produtos/${p.foto}.webp` : FALLBACK[p.cat];
+  const base = p => p.foto ? `assets/produtos/${p.foto}.webp` : FALLBACK[p.cat];
+  const img = (p, c) => p.fotos ? `assets/produtos/cores/${p.fotos[c] || p.fotos[Object.keys(p.fotos)[0]]}` : base(p);
   const sizeOf = s => { const last = String(s).split(/[\/·]/).pop().trim(); const n = parseFloat(last) || 0; return /TB/.test(last) ? n * 1024 : n; };
   const optsOf = p => [...new Set(p.v.map(v => v[0]))].sort((a, b) => sizeOf(a) - sizeOf(b) || a.localeCompare(b));
   const colorsOf = p => [...new Set(p.v.map(v => v[1]))];
@@ -35,8 +36,8 @@
       <span class="st-new">${p.novo ? 'Novo' : ''}</span>
       <h3>${p.nome}</h3>
       <p class="st-tag">${p.tag}</p>
-      <div class="st-media"><img src="${img(p)}" alt="${esc(p.nome)}" loading="lazy" /></div>
-      <div class="st-swatch-row">${colorsOf(p).map(dot).join('')}</div>
+      <div class="st-media"><img src="${img(p, m && m[1])}" alt="${esc(p.nome)}" loading="lazy" /></div>
+      <div class="st-swatch-row">${colorsOf(p).map(c => p.fotos && p.fotos[c] ? `<span class="dot" data-src="${img(p, c)}" style="background:${HEX[c] || '#bbb'}"></span>` : dot(c)).join('')}</div>
       <div class="st-foot">
         <span class="st-price">${m ? `A partir de ${brl(m[2])}<small>ou 12x de ${brl(m[3] / 12)}</small>` : `Preço sob consulta<small>fale com a BGTech</small>`}</span>
         <span class="st-buy">${m ? 'Comprar' : 'Consultar'}</span>
@@ -51,6 +52,11 @@
       <div class="st-row">${list.slice().reverse().map(card).join('')}</div>
     </section>`;
   }).join('');
+  // Passar o mouse na bolinha troca a foto do card
+  document.addEventListener('mouseover', e => {
+    const d = e.target.closest('.st-card .dot[data-src]'); if (!d) return;
+    const im = d.closest('.st-card').querySelector('.st-media img'); if (im.getAttribute('src') !== d.dataset.src) im.src = d.dataset.src;
+  });
   document.querySelectorAll('.st-updated').forEach(el => el.textContent = window.BG_UPDATED || '');
 
   /* ---------- Página do produto ---------- */
@@ -68,7 +74,7 @@
     $('bp-crumb-cat').href = `/produtos#sec-${p.cat}`;
     const m = minOf(priced(p));
     $('bp-from').innerHTML = m ? `A partir de <b>${brl(m[2])}</b> no Pix <small>ou 12x de ${brl(m[3] / 12)}</small>` : 'Preço sob consulta';
-    $('bp-img').src = img(p); $('bp-img').alt = p.nome;
+    $('bp-img').src = img(p, sel.c); $('bp-img').alt = p.nome;
     $('bp-opt-title').innerHTML = OPT_TITLE[p.cat];
     $('bp-bar-name').textContent = p.nome;
     const rel = PRODUCTS.filter(x => x.cat === p.cat && x.id !== p.id).slice(-6).reverse();
@@ -79,6 +85,17 @@
   // Aproxima a foto no aparelho da cor escolhida
   function focusColor(instant) {
     const im = $('bp-img');
+    if (cur.fotos) {
+      const src = img(cur, sel.c);
+      im.style.transform = 'none';
+      $('bp-caption').textContent = cur.fotos[sel.c] ? `${cur.nome} em ${sel.c}` : 'Foto ilustrativa. Cor confirmada no atendimento.';
+      if (im.getAttribute('src') === src) return;
+      if (instant) { im.src = src; return; }
+      const next = new Image(); next.src = src;
+      $('bp-stage').classList.add('swap');
+      next.decode().catch(() => {}).then(() => setTimeout(() => { im.src = src; im.alt = `${cur.nome} em ${sel.c}`; $('bp-stage').classList.remove('swap'); }, 160));
+      return;
+    }
     const x = cur.pos && cur.pos[sel.c];
     if (x == null) { im.style.transform = 'none'; $('bp-caption').textContent = cur.pos ? 'Foto ilustrativa. Cor confirmada no atendimento.' : ''; return; }
     const z = 1 + ((cur.z || 1.6) - 1) * 0.55;
