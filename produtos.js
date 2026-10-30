@@ -1,108 +1,172 @@
 (() => {
   const PRODUCTS = window.BG_PRODUCTS || [];
   const NUMBER = typeof WHATSAPP_NUMBER !== 'undefined' ? WHATSAPP_NUMBER : '5511920193443';
-  const CAT_LABEL = { iphone: 'iPhone', watch: 'Apple Watch', ipad: 'iPad', mac: 'Mac' };
+  const CATS = [
+    { id: 'iphone', label: 'iPhone', sub: 'Encontre o seu.' },
+    { id: 'watch', label: 'Apple Watch', sub: 'Saúde e treino no pulso.' },
+    { id: 'ipad', label: 'iPad', sub: 'Leve, versátil e poderoso.' },
+    { id: 'mac', label: 'Mac', sub: 'Para estudar, trabalhar e criar.' }
+  ];
+  const CAT = Object.fromEntries(CATS.map(c => [c.id, c]));
   const FALLBACK = { iphone: 'assets/smartphone-fallback.png', watch: 'assets/smartwatch-bgtech-v42.png', ipad: 'assets/tablet-clean-v41.png', mac: 'assets/macbook-fallback.png' };
-  const HEX = {"Azul":"#6f93c4","Preto":"#1d1f24","Meia-noite":"#232a36","Prateado":"#d9dbdf","Ultramarino":"#5a6fe6","Verde-acinzentado":"#7fb1ac","Estelar":"#f1e9db","Rosa":"#f2b8c6","Deserto":"#c8a985","Titânio natural":"#bab4aa","Dourado":"#e6d2a2","Lavanda":"#c8bbe8","Verde":"#a8c9a8","Laranja-cósmico":"#e9783a","Azul-intenso":"#24395f","Glacial":"#d7e6f1","Bordô":"#6b1f2e","Ouro-rosa":"#e8c4b8","Preto-espacial":"#2a2b2e","Preto brilhante":"#0d0d0f","Cinza-espacial":"#6a6b70","Roxo":"#a893d2","Blush":"#f0c9c0","Índigo":"#3b3f7a","Cítrico":"#e3e07a","Azul-céu":"#a8c6e2"};
+  const HEX = {"Azul":"#7a9cc9","Preto":"#2b2c30","Meia-noite":"#2c3340","Prateado":"#e3e4e6","Ultramarino":"#5a6fe6","Verde-acinzentado":"#7fb1ac","Estelar":"#f3ece0","Rosa":"#f4bfcc","Deserto":"#c8a985","Titânio natural":"#bab4aa","Dourado":"#e8d6aa","Lavanda":"#cdc1ea","Verde":"#adc9a9","Laranja-cósmico":"#e9783a","Azul-intenso":"#2a3f66","Glacial":"#cfe0ee","Bordô":"#6b1f2e","Ouro-rosa":"#e8c4b8","Preto-espacial":"#2a2b2e","Preto brilhante":"#111113","Cinza-espacial":"#6a6b70","Roxo":"#ab97d4","Blush":"#f0c9c0","Índigo":"#3b3f7a","Cítrico":"#e3e07a","Azul-céu":"#a8c6e2"};
+  const OPT_TITLE = {
+    iphone: 'Armazenamento. <span>Quanto espaço você precisa?</span>',
+    ipad: 'Armazenamento. <span>Quanto espaço você precisa?</span>',
+    watch: 'Modelo e tamanho. <span>Qual fica melhor no seu pulso?</span>',
+    mac: 'Configuração. <span>Chip, memória e armazenamento.</span>'
+  };
 
   const $ = id => document.getElementById(id);
   const brl = v => v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   const img = p => p.foto ? `assets/produtos/${p.foto}.webp` : FALLBACK[p.cat];
-  const sizeOf = s => { const last = s.split(/[\/·]/).pop().trim(); const n = parseFloat(last); return /TB/.test(last) ? n * 1024 : n; };
+  const sizeOf = s => { const last = String(s).split(/[\/·]/).pop().trim(); const n = parseFloat(last) || 0; return /TB/.test(last) ? n * 1024 : n; };
   const optsOf = p => [...new Set(p.v.map(v => v[0]))].sort((a, b) => sizeOf(a) - sizeOf(b) || a.localeCompare(b));
   const colorsOf = p => [...new Set(p.v.map(v => v[1]))];
   const priced = p => p.v.filter(v => v[2] != null);
-  const dot = c => `<span class="p-dot" style="background:${HEX[c] || '#bbb'}"></span>`;
+  const minOf = list => list.length ? list.reduce((m, v) => v[2] < m[2] ? v : m) : null;
+  const dot = c => `<span class="dot" style="background:${HEX[c] || '#bbb'}"></span>`;
+  const esc = s => String(s).replace(/"/g, '&quot;');
 
-  // Grade
-  let cat = 'all';
-  const grid = $('shop-grid');
-  function drawGrid() {
-    grid.innerHTML = PRODUCTS.filter(p => cat === 'all' || p.cat === cat).map(p => {
-      const ok = priced(p); const min = ok.length ? Math.min(...ok.map(v => v[2])) : null;
-      const opts = optsOf(p).filter(Boolean);
-      return `<button type="button" class="p-card" data-id="${p.id}">
-        <div class="p-media"><img src="${img(p)}" alt="${p.nome}" loading="lazy" /></div>
-        <div class="p-body">
-          <span class="card-kicker">${CAT_LABEL[p.cat].toUpperCase()}</span>
-          <h3>${p.nome}</h3>
-          <span class="p-opts">${opts.length ? opts.join(' · ') : p.tag}</span>
-          <div class="p-dots">${colorsOf(p).map(dot).join('')}</div>
-          <div class="p-foot">
-            <div class="p-price">${min ? `<small>a partir de</small><strong>${brl(min)}</strong>` : `<small>preço</small><strong>Consultar</strong>`}</div>
-            <span class="p-go">Ver opções →</span>
-          </div>
-        </div></button>`;
-    }).join('');
+  /* ---------- Vitrine ---------- */
+  function card(p) {
+    const m = minOf(priced(p));
+    return `<a class="st-card" href="#${p.id}">
+      <span class="st-new">${p.novo ? 'Novo' : ''}</span>
+      <h3>${p.nome}</h3>
+      <p class="st-tag">${p.tag}</p>
+      <div class="st-media"><img src="${img(p)}" alt="${esc(p.nome)}" loading="lazy" /></div>
+      <div class="st-swatch-row">${colorsOf(p).map(dot).join('')}</div>
+      <div class="st-foot">
+        <span class="st-price">${m ? `A partir de ${brl(m[2])}<small>ou 12x de ${brl(m[3] / 12)}</small>` : `Preço sob consulta<small>fale com a BGTech</small>`}</span>
+        <span class="st-buy">${m ? 'Comprar' : 'Consultar'}</span>
+      </div>
+    </a>`;
   }
-  document.querySelectorAll('.shop-chip').forEach(b => b.addEventListener('click', () => {
-    cat = b.dataset.cat;
-    document.querySelectorAll('.shop-chip').forEach(x => { x.classList.toggle('active', x === b); x.setAttribute('aria-pressed', String(x === b)); });
-    drawGrid();
-  }));
-  grid.addEventListener('click', e => { const c = e.target.closest('.p-card'); if (c) openProduct(c.dataset.id, true); });
+  $('st-sections').innerHTML = CATS.map(c => {
+    const list = PRODUCTS.filter(p => p.cat === c.id);
+    if (!list.length) return '';
+    return `<section class="st-sec" id="sec-${c.id}">
+      <div class="st-sec-head"><h2>${c.label}. <span>${c.sub}</span></h2></div>
+      <div class="st-row">${list.slice().reverse().map(card).join('')}</div>
+    </section>`;
+  }).join('');
+  document.querySelectorAll('.st-updated').forEach(el => el.textContent = window.BG_UPDATED || '');
 
-  // Detalhe do produto
-  let cur = null, sel = {}, lastFocus = null;
+  /* ---------- Página do produto ---------- */
+  let cur = null, sel = {};
   const find = (o, c) => cur.v.find(v => v[0] === o && v[1] === c);
-  function openProduct(id, push) {
-    cur = PRODUCTS.find(p => p.id === id); if (!cur) return;
-    lastFocus = document.activeElement;
-    const cheapest = [...priced(cur)].sort((a, b) => a[2] - b[2])[0] || cur.v[0];
-    sel = { o: cheapest[0], c: cheapest[1] };
-    $('pd-img').src = img(cur); $('pd-img').alt = cur.nome;
-    $('pd-name').textContent = cur.nome; $('pd-tag').textContent = cur.tag;
-    renderProduct();
-    $('pd').hidden = false; document.body.classList.add('pd-open'); $('pd-close').focus();
-    if (push && location.hash !== '#' + id) history.pushState(null, '', '#' + id);
-  }
-  function closeProduct(fromHistory) {
-    if ($('pd').hidden) return;
-    $('pd').hidden = true; $('zoom').hidden = true; document.body.classList.remove('pd-open');
-    if (!fromHistory && location.hash) history.pushState(null, '', location.pathname);
-    lastFocus?.focus?.();
-  }
-  function renderProduct() {
-    const opts = optsOf(cur);
-    $('pd-opt-group').hidden = opts.length === 1 && !opts[0];
-    $('pd-opts').innerHTML = opts.map(o => {
-      const any = cur.v.some(v => v[0] === o && v[2] != null);
-      return `<button type="button" class="pd-chip${any ? '' : ' soldout'}" data-o="${o}" aria-pressed="${o === sel.o}">${o}</button>`;
-    }).join('');
-    const cols = cur.v.filter(v => v[0] === sel.o).map(v => v[1]);
-    if (!cols.includes(sel.c)) sel.c = (cur.v.find(v => v[0] === sel.o && v[2] != null) || cur.v.find(v => v[0] === sel.o))[1];
-    $('pd-colors').innerHTML = cols.map(c => {
-      const v = find(sel.o, c);
-      return `<button type="button" class="pd-chip${v[2] != null ? '' : ' soldout'}" data-c="${c}" aria-pressed="${c === sel.c}">${dot(c)}${c}</button>`;
-    }).join('');
-    $('pd-color-name').textContent = sel.c;
-    const v = find(sel.o, sel.c); const has = v && v[2] != null;
-    $('pd-pix').textContent = has ? brl(v[2]) : 'Consultar';
-    $('pd-card').innerHTML = has ? `ou no cartão em até 12x<b>12x de ${brl(v[3] / 12)}</b>total ${brl(v[3])}` : 'Valor confirmado<br>no atendimento';
-    const conf = sel.o ? `${sel.o} · ${sel.c}` : sel.c;
-    const msg = `Olá, BGTech Store! Vi no site e quero encomendar:\n\n*${cur.nome}*\n• Configuração: ${sel.o || '—'}\n• Cor: ${sel.c}\n• Valor no site: ${has ? `${brl(v[2])} no Pix ou 12x de ${brl(v[3] / 12)}` : 'consultar'}\n\nPode confirmar disponibilidade e prazo?`;
-    $('pd-wa').href = `https://wa.me/${NUMBER}?text=${encodeURIComponent(msg)}`;
-    $('pd-wa').textContent = has ? `Pedir ${conf} pelo WhatsApp` : 'Consultar pelo WhatsApp';
-  }
-  $('pd-opts').addEventListener('click', e => { const b = e.target.closest('button'); if (b) { sel.o = b.dataset.o; renderProduct(); } });
-  $('pd-colors').addEventListener('click', e => { const b = e.target.closest('button'); if (b) { sel.c = b.dataset.c; renderProduct(); } });
-  $('pd-close').addEventListener('click', () => closeProduct(false));
-  $('pd').addEventListener('click', e => { if (e.target.id === 'pd') closeProduct(false); });
 
-  // Foto ampliada
-  const openZoom = () => { $('zoom-img').src = $('pd-img').src; $('zoom-img').alt = $('pd-img').alt; $('zoom').hidden = false; $('zoom-close').focus(); };
-  $('pd-img').addEventListener('click', openZoom); $('pd-zoom').addEventListener('click', openZoom);
-  $('zoom').addEventListener('click', () => { $('zoom').hidden = true; $('pd-zoom').focus(); });
-  document.addEventListener('keydown', e => {
-    if (e.key !== 'Escape') return;
-    if (!$('zoom').hidden) { $('zoom').hidden = true; return; }
-    closeProduct(false);
+  function showProduct(p) {
+    cur = p;
+    const best = minOf(priced(p)) || p.v[0];
+    sel = { o: best[0], c: best[1] };
+    document.title = `Comprar ${p.nome} | BGTech Store`;
+    $('bp-name').textContent = `Comprar ${p.nome}`;
+    $('bp-new').hidden = !p.novo;
+    $('bp-crumb-cat').textContent = CAT[p.cat].label;
+    $('bp-crumb-cat').href = `/produtos#sec-${p.cat}`;
+    const m = minOf(priced(p));
+    $('bp-from').innerHTML = m ? `A partir de <b>${brl(m[2])}</b> no Pix <small>ou 12x de ${brl(m[3] / 12)}</small>` : 'Preço sob consulta';
+    $('bp-img').src = img(p); $('bp-img').alt = p.nome;
+    $('bp-opt-title').innerHTML = OPT_TITLE[p.cat];
+    $('bp-bar-name').textContent = p.nome;
+    const rel = PRODUCTS.filter(x => x.cat === p.cat && x.id !== p.id).slice(-6).reverse();
+    $('bp-related').innerHTML = (rel.length ? rel : PRODUCTS.filter(x => x.id !== p.id).slice(0, 6)).map(card).join('');
+    render(true);
+  }
+
+  // Aproxima a foto no aparelho da cor escolhida
+  function focusColor(instant) {
+    const im = $('bp-img');
+    const x = cur.pos && cur.pos[sel.c];
+    if (x == null) { im.style.transform = 'none'; $('bp-caption').textContent = cur.pos ? 'Foto ilustrativa. Cor confirmada no atendimento.' : ''; return; }
+    const z = 1 + ((cur.z || 1.6) - 1) * 0.55;
+    const lim = (1 - 1 / z) / 2;
+    const shift = Math.max(-lim, Math.min(lim, 0.5 - x));
+    if (instant) { im.style.transition = 'none'; requestAnimationFrame(() => { im.style.transition = ''; }); }
+    im.style.transform = `scale(${z}) translateX(${(shift * 100).toFixed(2)}%)`;
+    $('bp-caption').textContent = `${cur.nome} em ${sel.c}`;
+  }
+
+  function render(first) {
+    const p = cur;
+    // Cores
+    $('bp-swatches').innerHTML = colorsOf(p).map(c => {
+      const v = find(sel.o, c);
+      const ok = v && v[2] != null;
+      return `<button type="button" class="bp-sw${ok ? '' : ' off'}" role="radio" aria-checked="${c === sel.c}" aria-label="${esc(c)}${ok ? '' : ' (consultar)'}" title="${esc(c)}" data-c="${esc(c)}"><span style="background:${HEX[c] || '#bbb'}"></span></button>`;
+    }).join('');
+    $('bp-color-name').innerHTML = `Cor: <b>${sel.c}</b>`;
+
+    // Configurações
+    const opts = optsOf(p);
+    $('bp-step-opt').hidden = opts.length === 1 && !opts[0];
+    $('bp-options').innerHTML = opts.map(o => {
+      const v = find(o, sel.c) || minOf(p.v.filter(x => x[0] === o && x[2] != null));
+      const has = v && v[2] != null;
+      const avail = p.v.some(x => x[0] === o && x[1] === sel.c);
+      return `<button type="button" class="bp-opt${has && avail ? '' : ' off'}" role="radio" aria-checked="${o === sel.o}" data-o="${esc(o)}">
+        <span><b>${o || 'Único'}</b>${avail ? '' : `<small>não disponível em ${sel.c}</small>`}</span>
+        <span class="bp-opt-price">${has ? `${brl(v[2])}<small>ou 12x de ${brl(v[3] / 12)}</small>` : 'Consultar'}</span>
+      </button>`;
+    }).join('');
+
+    // Resumo e WhatsApp
+    const v = find(sel.o, sel.c);
+    const has = v && v[2] != null;
+    const conf = [sel.o, sel.c].filter(Boolean).join(' · ');
+    $('bp-sum-line').innerHTML = `<b>${p.nome}</b> · ${conf}`;
+    $('bp-pix').textContent = has ? brl(v[2]) : 'Consultar';
+    $('bp-card').innerHTML = has ? `ou no cartão<b>12x de ${brl(v[3] / 12)}</b>total ${brl(v[3])}` : 'Valor confirmado<br>no atendimento';
+    const msg = `Olá, BGTech Store! Vi no site e quero encomendar:\n\n*${p.nome}*\n• Configuração: ${sel.o || '—'}\n• Cor: ${sel.c}\n• Valor no site: ${has ? `${brl(v[2])} no Pix ou 12x de ${brl(v[3] / 12)}` : 'consultar'}\n\nPode confirmar disponibilidade e prazo?`;
+    const url = `https://wa.me/${NUMBER}?text=${encodeURIComponent(msg)}`;
+    $('bp-cta').href = url; $('bp-bar-cta').href = url;
+    $('bp-cta-text').textContent = has ? 'Pedir pelo WhatsApp' : 'Consultar pelo WhatsApp';
+    $('bp-bar-price').textContent = has ? brl(v[2]) : 'Consultar';
+    $('bp-bar-cta').textContent = has ? 'Pedir' : 'Consultar';
+    focusColor(first);
+  }
+
+  $('bp-swatches').addEventListener('click', e => {
+    const b = e.target.closest('.bp-sw'); if (!b) return;
+    sel.c = b.dataset.c;
+    if (!find(sel.o, sel.c)) { const alt = minOf(cur.v.filter(v => v[1] === sel.c && v[2] != null)) || cur.v.find(v => v[1] === sel.c); sel.o = alt[0]; }
+    render(false);
+  });
+  $('bp-options').addEventListener('click', e => {
+    const b = e.target.closest('.bp-opt'); if (!b) return;
+    sel.o = b.dataset.o;
+    if (!find(sel.o, sel.c)) { const alt = minOf(cur.v.filter(v => v[0] === sel.o && v[2] != null)) || cur.v.find(v => v[0] === sel.o); sel.c = alt[1]; }
+    render(false);
+  });
+  $('bp-swatches').addEventListener('keydown', e => {
+    if (!['ArrowRight', 'ArrowLeft'].includes(e.key)) return;
+    const bs = [...$('bp-swatches').children]; const i = bs.findIndex(b => b.dataset.c === sel.c);
+    const n = bs[(i + (e.key === 'ArrowRight' ? 1 : bs.length - 1)) % bs.length];
+    n.click(); $('bp-swatches').querySelector(`[data-c="${n.dataset.c}"]`)?.focus(); e.preventDefault();
   });
 
-  // Link direto: /produtos#iphone-17-pro
-  function fromHash() { const id = decodeURIComponent(location.hash.slice(1)); if (id && PRODUCTS.some(p => p.id === id)) openProduct(id, false); else closeProduct(true); }
-  window.addEventListener('popstate', fromHash);
+  /* ---------- Foto ampliada ---------- */
+  const openZoom = () => { $('zoom-img').src = $('bp-img').src; $('zoom-img').alt = $('bp-img').alt; $('zoom').hidden = false; $('zoom-close').focus(); };
+  $('bp-img').addEventListener('click', openZoom);
+  $('bp-zoom').addEventListener('click', openZoom);
+  $('zoom').addEventListener('click', () => { $('zoom').hidden = true; });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') $('zoom').hidden = true; });
 
-  const upd = $('shop-updated'); if (upd) upd.textContent = window.BG_UPDATED || '';
-  drawGrid(); fromHash();
+  /* ---------- Rotas: /produtos e /produtos#id ---------- */
+  const baseTitle = document.title;
+  function route() {
+    const id = decodeURIComponent(location.hash.slice(1));
+    const p = PRODUCTS.find(x => x.id === id);
+    $('view-list').hidden = !!p; $('view-product').hidden = !p;
+    document.body.classList.toggle('on-product', !!p);
+    if (p) { showProduct(p); window.scrollTo(0, 0); }
+    else {
+      document.title = baseTitle;
+      if (id) document.getElementById(id)?.scrollIntoView();
+    }
+  }
+  window.addEventListener('hashchange', route);
+  route();
 })();

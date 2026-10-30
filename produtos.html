@@ -61,44 +61,99 @@
     <a class="mobile-wa" data-wa="Olá BGTech Store! Quero encontrar a tecnologia ideal para a minha rotina." href="#">Falar no WhatsApp</a>
   </nav>
 
-  <main id="conteudo" class="shop">
-    <section class="shop-hero">
-      <span class="eyebrow">PRODUTOS · SOB ENCOMENDA</span>
-      <h1>Escolha o seu.<br>A gente cuida do resto<span>.</span></h1>
-      <p>Veja as fotos, escolha a configuração e a cor e envie o pedido pronto pelo WhatsApp. Confirmamos disponibilidade e prazo no atendimento.</p>
-    </section>
+  <main id="conteudo" class="store">
+    <!-- VITRINE -->
+    <div id="view-list">
+      <section class="st-hero">
+        <h1>Loja<span>.</span> <em>O jeito mais simples de encomendar o Apple que você quer.</em></h1>
+        <a class="st-help" data-wa="Olá BGTech Store! Quero ajuda para escolher um produto." href="#">Precisa de ajuda para escolher?<br><b>Fale com a BGTech →</b></a>
+      </section>
 
-    <nav class="shop-filter" aria-label="Categorias de produto">
-      <button type="button" class="shop-chip active" data-cat="all" aria-pressed="true">Todos</button>
-      <button type="button" class="shop-chip" data-cat="iphone" aria-pressed="false">iPhone</button>
-      <button type="button" class="shop-chip" data-cat="watch" aria-pressed="false">Apple Watch</button>
-      <button type="button" class="shop-chip" data-cat="ipad" aria-pressed="false">iPad</button>
-      <button type="button" class="shop-chip" data-cat="mac" aria-pressed="false">Mac</button>
-    </nav>
+      <nav class="st-cats" aria-label="Categorias">
+        <a href="#sec-iphone"><img src="assets/produtos/iphone-17-pro.webp" alt="" /><span>iPhone</span></a>
+        <a href="#sec-watch"><img src="assets/smartwatch-bgtech-v42.png" alt="" /><span>Apple Watch</span></a>
+        <a href="#sec-ipad"><img src="assets/produtos/ipad-air.webp" alt="" /><span>iPad</span></a>
+        <a href="#sec-mac"><img src="assets/produtos/macbook-air.webp" alt="" /><span>Mac</span></a>
+      </nav>
 
-    <section class="shop-grid" id="shop-grid" aria-live="polite"></section>
-    <p class="shop-note">Preços atualizados em <span id="shop-updated"></span>. Pix à vista ou cartão em até 12x. Valores e disponibilidade confirmados no atendimento.</p>
-  </main>
+      <div id="st-sections"></div>
 
-  <div class="pd" id="pd" hidden role="dialog" aria-modal="true" aria-labelledby="pd-name">
-    <div class="pd-box">
-      <button class="pd-close" id="pd-close" type="button" aria-label="Fechar">×</button>
-      <figure class="pd-media"><img id="pd-img" alt="" /><button class="pd-zoom" id="pd-zoom" type="button">Ampliar foto</button></figure>
-      <div class="pd-info">
-        <span class="card-kicker" id="pd-tag"></span>
-        <h2 id="pd-name"></h2>
-        <div class="pd-group" id="pd-opt-group"><span class="pd-label">Configuração</span><div class="pd-chips" id="pd-opts"></div></div>
-        <div class="pd-group"><span class="pd-label">Cor <b id="pd-color-name"></b></span><div class="pd-chips" id="pd-colors"></div></div>
-        <div class="pd-price">
-          <div><small>À vista no Pix</small><strong id="pd-pix"></strong></div>
-          <div class="pd-card" id="pd-card"></div>
+      <section class="st-perks">
+        <h2>Por que encomendar com a BGTech<span>.</span></h2>
+        <div class="st-perks-row">
+          <article><strong>5% OFF</strong><p>no Pix à vista em todos os produtos.</p></article>
+          <article><strong>12x</strong><p>no cartão, com valor total mostrado antes.</p></article>
+          <article><strong>Lacrado</strong><p>produtos novos com garantia Apple.</p></article>
+          <article><strong>1:1</strong><p>atendimento direto pelo WhatsApp, do pedido à entrega.</p></article>
         </div>
-        <a class="btn btn-wa" id="pd-wa" href="#" target="_blank" rel="noopener noreferrer">Pedir pelo WhatsApp</a>
-        <p class="pd-help">Você conversa direto com a BGTech. Sem cadastro e sem pagamento no site.</p>
+      </section>
+      <p class="st-note">Preços atualizados em <span class="st-updated"></span>. Produtos sob encomenda: disponibilidade e prazo confirmados no atendimento.</p>
+    </div>
+
+    <!-- PÁGINA DO PRODUTO -->
+    <div id="view-product" hidden>
+      <div class="bp-top">
+        <nav class="bp-crumbs" aria-label="Você está em"><a href="/produtos">Produtos</a><span>›</span><a id="bp-crumb-cat" href="/produtos"></a></nav>
+        <span class="bp-new" id="bp-new" hidden>Novo</span>
+        <h1 id="bp-name"></h1>
+        <p class="bp-from" id="bp-from"></p>
+      </div>
+
+      <div class="bp-grid">
+        <div class="bp-gallery">
+          <div class="bp-stage" id="bp-stage">
+            <img id="bp-img" alt="" />
+            <button type="button" class="bp-zoom" id="bp-zoom" aria-label="Ampliar foto">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 3a7.5 7.5 0 0 1 5.9 12.1l4.8 4.8-1.4 1.4-4.8-4.8A7.5 7.5 0 1 1 10.5 3Zm0 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11Zm1 2v2.5H14v2h-2.5V14h-2v-2.5H7v-2h2.5V7h2Z"/></svg>
+            </button>
+          </div>
+          <p class="bp-caption" id="bp-caption"></p>
+        </div>
+
+        <div class="bp-config">
+          <section class="bp-step">
+            <h2>Acabamento. <span>Escolha a sua cor.</span></h2>
+            <p class="bp-color-name" id="bp-color-name"></p>
+            <div class="bp-swatches" id="bp-swatches" role="radiogroup" aria-label="Cor"></div>
+          </section>
+
+          <section class="bp-step" id="bp-step-opt">
+            <h2 id="bp-opt-title">Armazenamento. <span>Quanto espaço você precisa?</span></h2>
+            <div class="bp-options" id="bp-options" role="radiogroup" aria-label="Configuração"></div>
+          </section>
+
+          <section class="bp-summary" aria-live="polite">
+            <p class="bp-sum-line" id="bp-sum-line"></p>
+            <div class="bp-sum-price">
+              <div><small>À vista no Pix</small><strong id="bp-pix"></strong></div>
+              <div class="bp-sum-card" id="bp-card"></div>
+            </div>
+            <a class="bp-cta" id="bp-cta" href="#" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.05 4.91A9.82 9.82 0 0 0 12.03 2C6.6 2 2.18 6.42 2.18 11.86c0 1.74.45 3.45 1.31 4.95L2 22l5.35-1.4a9.8 9.8 0 0 0 4.68 1.19h.01c5.43 0 9.85-4.42 9.85-9.86a9.8 9.8 0 0 0-2.84-7.02Zm-2.54 9.09c-.24-.12-1.43-.71-1.65-.79-.22-.08-.38-.12-.54.12-.16.24-.62.79-.76.95-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.19-.71-.63-1.19-1.41-1.33-1.65-.14-.24-.01-.37.11-.49.11-.1.24-.28.35-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.31-.74-1.79-.2-.48-.4-.41-.54-.42h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.31.98 2.47c.12.16 1.69 2.58 4.09 3.61.57.25 1.02.4 1.36.51.57.18 1.1.16 1.52.1.46-.07 1.43-.58 1.63-1.15.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28Z"/></svg>
+              <span id="bp-cta-text">Pedir pelo WhatsApp</span>
+            </a>
+            <ul class="bp-perks">
+              <li>Sem cadastro e sem pagamento no site</li>
+              <li>Disponibilidade e prazo confirmados na conversa</li>
+              <li>Produto lacrado com garantia Apple</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+
+      <section class="bp-related">
+        <h2>Você também pode gostar<span>.</span></h2>
+        <div class="st-row" id="bp-related"></div>
+      </section>
+
+      <div class="bp-bar" id="bp-bar">
+        <div><small id="bp-bar-name"></small><strong id="bp-bar-price"></strong></div>
+        <a class="bp-cta" id="bp-bar-cta" href="#" target="_blank" rel="noopener noreferrer">Pedir</a>
       </div>
     </div>
-  </div>
-  <div class="zoom" id="zoom" hidden><img id="zoom-img" alt="" /><button class="pd-close" id="zoom-close" type="button" aria-label="Fechar foto">×</button></div>
+  </main>
+
+  <div class="zoom" id="zoom" hidden><img id="zoom-img" alt="" /><button class="zoom-close" id="zoom-close" type="button" aria-label="Fechar foto">×</button></div>
 
   <footer>
     <div class="footer-main">
