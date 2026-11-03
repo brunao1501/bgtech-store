@@ -138,3 +138,11 @@
   body.on-product footer{padding-bottom:96px}
 }
 @media(prefers-reduced-motion:reduce){.bp-stage img,.st-card,.st-cats img{transition:none}}
+
+/* Setas da fileira */
+.st-sec-head{align-items:center}
+.st-arrows{display:flex;gap:10px;flex:none}
+.st-arrow{width:44px;height:44px;border-radius:50%;border:0;background:#e8e8ed;color:#1d1d1f;font-size:26px;line-height:1;display:grid;place-items:center;cursor:pointer;transition:background .2s,opacity .2s}
+.st-arrow:hover:not(:disabled){background:#d2d2d7}
+.st-arrow:disabled{opacity:.35;cursor:default}
+@media(hover:none){.st-arrows{display:none}}
