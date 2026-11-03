@@ -9,7 +9,7 @@
   ];
   const CAT = Object.fromEntries(CATS.map(c => [c.id, c]));
   const FALLBACK = { iphone: 'assets/smartphone-fallback.png', watch: 'assets/smartwatch-bgtech-v42.png', ipad: 'assets/tablet-clean-v41.png', mac: 'assets/macbook-fallback.png' };
-  const HEX = {"Azul":"#7a9cc9","Preto":"#2b2c30","Meia-noite":"#2c3340","Prateado":"#e3e4e6","Ultramarino":"#5a6fe6","Verde-acinzentado":"#7fb1ac","Estelar":"#f3ece0","Rosa":"#f4bfcc","Deserto":"#c8a985","Titânio natural":"#bab4aa","Dourado":"#e8d6aa","Lavanda":"#cdc1ea","Verde":"#adc9a9","Laranja-cósmico":"#e9783a","Azul-intenso":"#2a3f66","Glacial":"#cfe0ee","Bordô":"#6b1f2e","Ouro-rosa":"#e8c4b8","Preto-espacial":"#2a2b2e","Preto brilhante":"#111113","Cinza-espacial":"#6a6b70","Roxo":"#ab97d4","Blush":"#f0c9c0","Índigo":"#3b3f7a","Cítrico":"#e3e07a","Azul-céu":"#a8c6e2"};
+  const HEX = {"Azul":"#7a9cc9","Preto":"#2b2c30","Meia-noite":"#2c3340","Prateado":"#e3e4e6","Ultramarino":"#5a6fe6","Verde-acinzentado":"#7fb1ac","Estelar":"#f3ece0","Rosa":"#f4bfcc","Deserto":"#c8a985","Titânio natural":"#bab4aa","Dourado":"#e8d6aa","Lavanda":"#cdc1ea","Verde":"#adc9a9","Laranja-cósmico":"#e9783a","Azul-intenso":"#2a3f66","Glacial":"#cfe0ee","Bordô":"#6b1f2e","Ouro-rosa":"#e8c4b8","Preto-espacial":"#2a2b2e","Preto brilhante":"#111113","Cinza-espacial":"#6a6b70","Roxo":"#ab97d4","Blush":"#f0c9c0","Índigo":"#3b3f7a","Cítrico":"#e3e07a","Azul-céu":"#a8c6e2","Céu noturno":"#2b3a52","Branco estelar":"#f2f0eb"};
   const OPT_TITLE = {
     iphone: 'Armazenamento. <span>Quanto espaço você precisa?</span>',
     ipad: 'Armazenamento. <span>Quanto espaço você precisa?</span>',
@@ -167,9 +167,10 @@
 
   $('bp-swatches').addEventListener('click', e => {
     const b = e.target.closest('.bp-sw'); if (!b) return;
-    sel.c = b.dataset.c;
+    sel.c = b.dataset.c; const kb = document.activeElement === b;
     if (!find(sel.o, sel.c)) { const alt = minOf(cur.v.filter(v => v[1] === sel.c && v[2] != null)) || cur.v.find(v => v[1] === sel.c); sel.o = alt[0]; }
     render(false);
+    if (kb) $('bp-swatches').querySelector('[aria-checked="true"]')?.focus({ preventScroll: true });
   });
   $('bp-options').addEventListener('click', e => {
     const b = e.target.closest('.bp-opt'); if (!b) return;
