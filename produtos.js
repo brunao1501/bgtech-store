@@ -155,7 +155,7 @@
     const conf = [sel.o, sel.c].filter(Boolean).join(' · ');
     $('bp-sum-line').innerHTML = `<b>${p.nome}</b> · ${conf}`;
     $('bp-pix').textContent = has ? brl(v[2]) : 'Consultar';
-    $('bp-card').innerHTML = has ? `ou no cartão<b>12x de ${brl(v[3] / 12)}</b>total ${brl(v[3])}` : 'Valor confirmado<br>no atendimento';
+    $('bp-card').innerHTML = has ? `ou no cartão<b>12x de ${brl(v[3] / 12)}</b>` : 'Valor confirmado<br>no atendimento';
     const msg = `Olá, BGTech Store! Vi no site e quero encomendar:\n\n*${p.nome}*\n• Configuração: ${sel.o || '—'}\n• Cor: ${sel.c}\n• Valor no site: ${has ? `${brl(v[2])} no Pix ou 12x de ${brl(v[3] / 12)}` : 'consultar'}\n\nPode confirmar disponibilidade e prazo?`;
     const url = `https://wa.me/${NUMBER}?text=${encodeURIComponent(msg)}`;
     $('bp-cta').href = url; $('bp-bar-cta').href = url;
