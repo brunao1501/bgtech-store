@@ -146,3 +146,10 @@
 .st-arrow:hover:not(:disabled){background:#d2d2d7}
 .st-arrow:disabled{opacity:.35;cursor:default}
 @media(hover:none){.st-arrows{display:none}}
+
+/* Bolinhas de cor: anel de seleção redondo e sem contorno quadrado ao clicar */
+.bp-sw{-webkit-tap-highlight-color:transparent;outline:none}
+.bp-sw:focus-visible{outline:none;box-shadow:0 0 0 2px #fff,0 0 0 4px var(--blue)}
+.bp-sw[aria-checked="true"]:focus-visible{box-shadow:0 0 0 2px var(--blue),0 0 0 5px rgba(0,113,227,.25)}
+.bp-sw:hover span{transform:scale(1.06)}
+.bp-sw span{transition:transform .15s}
