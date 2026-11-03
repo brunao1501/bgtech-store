@@ -19,6 +19,7 @@
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="cinematic.css" />
+  <link rel="stylesheet" href="home.css" />
 
   <script type="application/ld+json">
   {
@@ -59,96 +60,88 @@
     <a class="mobile-wa" data-wa="Olá BGTech Store! Quero encontrar a tecnologia ideal para a minha rotina." href="#">Falar no WhatsApp</a>
   </nav>
 
-  <main id="conteudo">
-    <section class="hero-clean" aria-labelledby="hero-title">
-      <div class="hero-copy reveal">
+  <main id="conteudo" class="home">
+    <!-- 1. Abertura -->
+    <section class="h-hero" aria-labelledby="h-title">
+      <div class="h-hero-copy">
         <span class="eyebrow">BGTECH STORE · TECNOLOGIA SOB ENCOMENDA</span>
-        <h1 id="hero-title">Sua próxima<br>possibilidade<span>.</span></h1>
-        <p>Tecnologia escolhida para a sua rotina. Encontre o seu próximo dispositivo com a orientação de quem entende.</p>
+        <h1 id="h-title"><span class="h-line">Sua próxima</span><span class="h-line">possibilidade<i>.</i></span></h1>
+        <p>iPhone, Apple Watch, iPad e Mac escolhidos para a sua rotina, com preço no Pix e pedido direto pelo WhatsApp.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="/produtos">Ver produtos</a>
-          <a class="btn btn-ghost" data-wa="Olá BGTech Store! Quero ajuda para escolher o produto ideal." href="#">Falar com a BGTech</a>
+          <a class="btn btn-primary" href="#lancamentos">Ver lançamentos</a>
+          <a class="btn btn-ghost" href="/produtos#sec-kits">Montar um kit</a>
         </div>
       </div>
-
-      <div class="hero-product" aria-hidden="true">
-        <span class="hero-word">EXPLORE</span>
-        <div class="hero-scene">
-        <span class="hero-halo"></span>
-        <img class="hero-product-img" src="assets/macbook-fallback.png" data-fallback-src="assets/macbook-fallback.png" alt="MacBook Pro" fetchpriority="high" />
-        <img class="hero-phone" src="assets/smartphone-fallback.png" alt="" />
-        <img class="hero-tablet" src="assets/tablet-clean-v41.png" alt="" />
-        </div>
-        <span class="hero-caption">ESCOLHAS QUE CONECTAM POSSIBILIDADES</span>
+      <div class="h-hero-stage" aria-hidden="true">
+        <span class="h-glow"></span>
+        <img class="h-ph h-ph-1" src="assets/produtos/cores/iphone-18-pro-glacial.webp" alt="" />
+        <img class="h-ph h-ph-2" src="assets/produtos/cores/iphone-18-pro-bordo.webp" alt="" />
+        <img class="h-ph h-ph-3" src="assets/produtos/cores/iphone-18-pro-preto.webp" alt="" />
       </div>
+      <a class="h-scroll" href="#lancamentos" aria-label="Rolar para os lançamentos"><span></span></a>
+    </section>
 
-      <div class="hero-meta" aria-label="Condições da loja">
-        <span><strong>5% OFF</strong> no Pix</span>
-        <span><strong>Até 12x</strong> no cartão</span>
-        <span><strong>Sob encomenda</strong> com consulta de disponibilidade</span>
+    <!-- 2. Lançamentos (fixo enquanto rola) -->
+    <section class="h-launch" id="lancamentos" aria-label="Lançamentos">
+      <div class="h-launch-sticky">
+        <div class="h-launch-copy">
+          <article class="h-slide is-on" data-i="0">
+            <span class="eyebrow">LANÇAMENTO</span>
+            <h2>iPhone 18 Pro.</h2>
+            <p class="h-sub">A nova geração Pro, em <b class="h-color">Preto</b>.</p>
+            <p class="h-price" data-id="iphone-18-pro"></p>
+            <a class="btn btn-primary" href="/produtos#iphone-18-pro">Comprar</a>
+          </article>
+          <article class="h-slide" data-i="1">
+            <span class="eyebrow">NOVO</span>
+            <h2>iPhone Duo.</h2>
+            <p class="h-sub">Dois mundos em um só iPhone. Abre como um tablet, fecha no bolso.</p>
+            <p class="h-price" data-id="iphone-duo"></p>
+            <a class="btn btn-primary" href="/produtos#iphone-duo">Comprar</a>
+          </article>
+          <article class="h-slide" data-i="2">
+            <span class="eyebrow">O TOPO DA LINHA</span>
+            <h2>iPhone 18 Pro Max.</h2>
+            <p class="h-sub">A maior tela e a maior bateria da geração.</p>
+            <p class="h-price" data-id="iphone-18-pro-max"></p>
+            <a class="btn btn-primary" href="/produtos#iphone-18-pro-max">Comprar</a>
+          </article>
+        </div>
+        <div class="h-launch-stage" aria-hidden="true">
+          <span class="h-ring"></span>
+          <div class="h-shot is-on" data-i="0">
+            <img src="assets/produtos/cores/iphone-18-pro-preto.webp" alt="" data-c="Preto" />
+            <img src="assets/produtos/cores/iphone-18-pro-prateado.webp" alt="" data-c="Prateado" />
+            <img src="assets/produtos/cores/iphone-18-pro-glacial.webp" alt="" data-c="Glacial" />
+            <img src="assets/produtos/cores/iphone-18-pro-bordo.webp" alt="" data-c="Bordô" />
+          </div>
+          <div class="h-shot" data-i="1"><img src="assets/produtos/cores/iphone-duo-ceu-noturno.webp" alt="" /></div>
+          <div class="h-shot" data-i="2"><img src="assets/produtos/cores/iphone-18-pro-max-prateado.webp" alt="" /></div>
+        </div>
+        <div class="h-dots" aria-hidden="true"><span></span><span></span><span></span></div>
       </div>
     </section>
 
-    <section class="section intro-section" id="categorias">
+    <!-- 3. Kits -->
+    <section class="section h-kits" id="kits">
       <div class="section-title center reveal">
-        <span class="eyebrow">EXPLORE POR CATEGORIA</span>
-        <h2>Encontre o que faz sentido.</h2>
-        <p>Do primeiro compromisso à próxima grande ideia. Encontre a tecnologia que acompanha você.</p>
+        <span class="eyebrow">KITS APPLE</span>
+        <h2>Melhor juntos.</h2>
+        <p>Monte o seu kit, escolha modelo e cor de cada item e economize no Pix.</p>
       </div>
-
-      <div class="editorial-grid">
-        <article class="editorial-card editorial-large reveal">
-          <div class="editorial-copy">
-            <span class="card-kicker">MOBILIDADE E PRODUTIVIDADE</span>
-            <h3>MacBook Pro e notebooks.</h3>
-            <p>Mais espaço, conforto e desempenho para estudar, trabalhar, criar e produzir com fluidez.</p>
-            <a href="/produtos#sec-mac">Explorar opções <span>→</span></a>
-          </div>
-          <div class="editorial-media media-soft-blue dual-media">
-            <div class="dual-device-showcase">
-              <img class="showcase-mac" src="assets/macbook-fallback.png" data-fallback-src="assets/macbook-fallback.png" alt="MacBook Pro" />
-              <img class="showcase-notebook" src="assets/notebook-premium-v41.png" data-fallback-src="assets/notebook-premium-v41.png" alt="Notebook premium" />
-            </div>
-          </div>
-        </article>
-
-        <article class="editorial-card reveal">
-          <div class="editorial-copy">
-            <span class="card-kicker">CÂMERA + CONECTIVIDADE</span>
-            <h3>Smartphones.</h3>
-            <p>Opções para uso diário, fotografia, performance e autonomia.</p>
-            <a href="/produtos#sec-iphone">Ver smartphones <span>→</span></a>
-          </div>
-          <div class="editorial-media media-dark">
-            <img src="assets/smartphone-fallback.png" data-fallback-src="assets/smartphone-fallback.png" alt="Smartphone" />
-          </div>
-        </article>
-
-        <article class="editorial-card reveal">
-          <div class="editorial-copy">
-            <span class="card-kicker">TELA MAIOR, ROTINA LEVE</span>
-            <h3>Tablets.</h3>
-            <p>Estudo, leitura, mídia e produtividade em um formato versátil.</p>
-            <a href="/produtos#sec-ipad">Ver tablets <span>→</span></a>
-          </div>
-          <div class="editorial-media media-sky">
-            <img src="assets/tablet-clean-v41.png" data-fallback-src="assets/tablet-clean-v41.png" alt="Tablet" />
-          </div>
-        </article>
-
-        <article class="editorial-card editorial-wide reveal">
-          <div class="editorial-copy">
-            <span class="card-kicker">COMPLEMENTE SUA EXPERIÊNCIA</span>
-            <h3>Smartwatches e acessórios.</h3>
-            <p>Relógios inteligentes, fones, cabos, adaptadores, capas e outros eletrônicos selecionados.</p>
-            <a href="/produtos#sec-watch">Consultar opções <span>→</span></a>
-          </div>
-          <div class="accessory-art" aria-hidden="true">
-            <span class="ring ring-1"></span><span class="ring ring-2"></span><span class="ring ring-3"></span>
-            <img class="accessory-watch-img" src="assets/smartwatch-bgtech-v42.png" data-fallback-src="assets/smartwatch-bgtech-v42.png" alt="Smartwatch premium" />
-            <div class="accessory-pill">Smartwatches</div><div class="accessory-pill second">Acessórios</div>
-          </div>
-        </article>
+      <div class="h-kit-grid">
+        <a class="h-kit" href="/produtos#kit-iphone-watch" data-kit="kit-iphone-watch">
+          <div class="h-kit-art"><img class="h-k-a" src="assets/produtos/cores/iphone-17-azul.webp" alt="" /><span class="h-plus">+</span><img class="h-k-b" src="assets/produtos/cores/w-jetblack.webp" alt="" /></div>
+          <h3>iPhone + Apple Watch</h3><p class="h-kit-price"></p><span class="h-kit-go">Montar kit →</span>
+        </a>
+        <a class="h-kit" href="/produtos#kit-macbook-iphone" data-kit="kit-macbook-iphone">
+          <div class="h-kit-art"><img class="h-k-a" src="assets/produtos/cores/macbook-air-m5-azul-ceu.webp" alt="" /><span class="h-plus">+</span><img class="h-k-b" src="assets/produtos/cores/iphone-17-azul.webp" alt="" /></div>
+          <h3>MacBook + iPhone</h3><p class="h-kit-price"></p><span class="h-kit-go">Montar kit →</span>
+        </a>
+        <a class="h-kit" href="/produtos#kit-ipad-teclado-capa" data-kit="kit-ipad-teclado-capa">
+          <div class="h-kit-art"><img class="h-k-a" src="assets/produtos/cores/ipad-air-m4-11-azul.webp" alt="" /><span class="h-plus">+</span><span class="h-k-b h-kb-text">Teclado<br>+ capa</span></div>
+          <h3>iPad + Teclado + Capa</h3><p class="h-kit-price"></p><span class="h-kit-go">Montar kit →</span>
+        </a>
       </div>
     </section>
 
@@ -187,6 +180,7 @@
 
   <noscript><div class="noscript">Para usar os links automáticos do WhatsApp, ative o JavaScript. Telefone: (11) 92019-3443.</div></noscript>
   <script src="script.js" defer></script>
-  <script src="cinematic.js" defer></script>
+  <script src="produtos-data.js" defer></script>
+  <script src="home.js" defer></script>
 </body>
 </html>
