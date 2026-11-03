@@ -153,3 +153,35 @@
 .bp-sw[aria-checked="true"]:focus-visible{box-shadow:0 0 0 2px var(--blue),0 0 0 5px rgba(0,113,227,.25)}
 .bp-sw:hover span{transform:scale(1.06)}
 .bp-sw span{transition:transform .15s}
+
+/* ---------- Kits ---------- */
+.kit-view{background:#fff}
+.kit-media,.kit-stage{display:flex;align-items:center;justify-content:center;gap:4%}
+.kit-media .kit-pic{height:190px;width:48%;object-fit:contain}
+.st-card.kit-card .st-media{min-height:220px}
+.st-card.kit-card .st-new{color:var(--blue)}
+.kit-stage{padding:8%}
+.kit-stage .kit-pic{position:static;width:48%;height:84%;object-fit:contain;mix-blend-mode:multiply}
+.kit-stage .kit-pic:only-child{width:80%}
+.kit-media .kit-pic:only-child{width:80%}
+.kit-step{padding:0 0 28px;margin-bottom:28px;border-bottom:1px solid var(--line)}
+.kit-step h2{display:flex;align-items:center;gap:12px;font-size:24px;letter-spacing:-.03em;margin-bottom:16px}
+.kit-n{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--blue);color:#fff;font-size:14px;letter-spacing:0}
+.kit-label{display:block;font-size:13px;font-weight:650;color:#4a515c;margin:14px 0 8px}
+.kit-label b{font-weight:500;color:#1d1d1f}
+.kit-select{width:100%;padding:14px 16px;border-radius:14px;border:1px solid #d2d2d7;background:#fff;font:inherit;font-size:15px;color:#1d1d1f;cursor:pointer}
+.kit-select:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.kit-chips{display:flex;flex-wrap:wrap;gap:8px}
+.kit-chip{padding:10px 14px;border-radius:12px;border:1px solid #d2d2d7;background:#fff;font:inherit;font-size:14px;font-weight:600;color:#1d1d1f;cursor:pointer}
+.kit-chip[aria-pressed="true"]{border-color:var(--blue);box-shadow:0 0 0 1px var(--blue)}
+.kit-chip.off{color:#86868b}
+.kit-item-price{margin:14px 0 0;font-size:15px;font-weight:650;font-variant-numeric:tabular-nums}
+.kit-acc{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 20px;border-radius:16px;background:var(--soft)}
+.kit-acc p{margin:0;color:#4a515c;font-size:14px}
+.kit-acc b{font-variant-numeric:tabular-nums;white-space:nowrap}
+.kit-lines{margin:0 0 16px;padding-left:18px;color:#4a515c;font-size:13px;display:grid;gap:4px}
+.bp-sum-price small s{color:#86868b}
+@media(max-width:720px){body.on-kit .whatsapp-fab{display:none}body.on-kit footer{padding-bottom:96px}}
+.st-card .st-media.kit-media{display:flex;flex-direction:row;align-items:center;justify-content:center;gap:4%}
+.st-card .st-media.kit-media img{width:48%;height:190px}
+.st-card .st-media.kit-media img:only-child{width:80%}

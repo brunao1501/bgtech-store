@@ -192,15 +192,18 @@
   $('zoom').addEventListener('click', () => { $('zoom').hidden = true; });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') $('zoom').hidden = true; });
 
+  window.BG_UI = { img, brl, HEX, optsOf, colorsOf, minOf, priced, NUMBER, esc };
+
   /* ---------- Rotas: /produtos e /produtos#id ---------- */
   const baseTitle = document.title;
   function route() {
     const id = decodeURIComponent(location.hash.slice(1));
     const p = PRODUCTS.find(x => x.id === id);
-    $('view-list').hidden = !!p; $('view-product').hidden = !p;
+    const isKit = (window.BG_KITS || []).some(k => k.id === id);
+    $('view-list').hidden = !!p || isKit; $('view-product').hidden = !p;
     document.body.classList.toggle('on-product', !!p);
     if (p) { showProduct(p); window.scrollTo(0, 0); }
-    else {
+    else if (!isKit) {
       document.title = baseTitle;
       if (id) document.getElementById(id)?.scrollIntoView();
     }
