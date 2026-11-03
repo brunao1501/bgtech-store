@@ -18,6 +18,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="cinematic.css" />
   <link rel="stylesheet" href="produtos.css" />
 
   <script type="application/ld+json">
@@ -41,11 +42,10 @@
     </a>
 
     <nav class="desktop-nav" aria-label="Navegação principal">
+      <a href="/sobre">Sobre</a>
       <a href="/produtos" aria-current="page">Produtos</a>
-      <a href="/#perfis">Para sua rotina</a>
-      <a href="/#como-comprar">Como comprar</a>
-      <a href="/#entregas">Entregas</a>
-      <a href="/#sobre">Sobre</a>
+      <a href="/como-comprar">Como comprar</a>
+      <a href="/entregas">Entregas</a>
     </nav>
 
     <a class="header-cta" data-wa="Olá BGTech Store! Quero encontrar a tecnologia ideal para a minha rotina." href="#">Falar no WhatsApp</a>
@@ -53,11 +53,10 @@
   </header>
 
   <nav class="mobile-menu" id="mobile-menu" hidden aria-label="Navegação móvel">
+    <a href="/sobre">Sobre</a>
     <a href="/produtos" aria-current="page">Produtos</a>
-    <a href="/#perfis">Para sua rotina</a>
-    <a href="/#como-comprar">Como comprar</a>
-    <a href="/#entregas">Entregas</a>
-    <a href="/#sobre">Sobre</a>
+    <a href="/como-comprar">Como comprar</a>
+    <a href="/entregas">Entregas</a>
     <a class="mobile-wa" data-wa="Olá BGTech Store! Quero encontrar a tecnologia ideal para a minha rotina." href="#">Falar no WhatsApp</a>
   </nav>
 
@@ -77,6 +76,33 @@
       </nav>
 
       <div id="st-sections"></div>
+
+        <section class="section profile-section" id="perfis">
+        <div class="section-title reveal">
+          <span class="eyebrow">PARA SUA ROTINA</span>
+          <h2>Comece pela sua necessidade.</h2>
+        </div>
+  
+        <div class="profile-tabs" role="tablist" aria-label="Perfis de uso">
+          <button class="profile-tab active" id="tab-estudo" aria-controls="profile-panel" tabindex="0" data-profile="estudo" role="tab" aria-selected="true">Estudo</button>
+          <button class="profile-tab" id="tab-trabalho" aria-controls="profile-panel" tabindex="-1" data-profile="trabalho" role="tab" aria-selected="false">Trabalho</button>
+          <button class="profile-tab" id="tab-mobilidade" aria-controls="profile-panel" tabindex="-1" data-profile="mobilidade" role="tab" aria-selected="false">Mobilidade</button>
+          <button class="profile-tab" id="tab-performance" aria-controls="profile-panel" tabindex="-1" data-profile="performance" role="tab" aria-selected="false">Performance</button>
+        </div>
+  
+        <div class="profile-panel reveal" id="profile-panel" role="tabpanel" aria-labelledby="tab-estudo">
+          <div class="profile-copy">
+            <span class="profile-number">01</span>
+            <h3 id="profile-title">Para estudar com mais organização.</h3>
+            <p id="profile-text">Tablets e notebooks ajudam em pesquisas, aulas, documentos, apresentações e multitarefa sem complicar a rotina.</p>
+            <a id="profile-link" data-wa="Olá! Quero uma recomendação para estudo." href="#">Receber recomendação <span>→</span></a>
+          </div>
+          <div class="profile-visual" aria-hidden="true">
+            <span class="profile-orbit"></span>
+            <img id="profile-image" src="assets/tablet-fallback.png" data-fallback-src="assets/tablet-fallback.png" alt="Tablet" />
+          </div>
+        </div>
+      </section>
 
       <section class="st-perks">
         <h2>Por que encomendar com a BGTech<span>.</span></h2>
@@ -163,7 +189,7 @@
       </div>
       <div class="footer-links">
         <a href="/produtos">Produtos</a>
-        <a href="/#como-comprar">Como comprar</a>
+        <a href="#como-comprar">Como comprar</a>
         <a href="https://instagram.com/bgtechstore" target="_blank" rel="noopener noreferrer">Instagram</a>
         <a data-wa="Olá BGTech Store!" href="#">WhatsApp</a>
       </div>

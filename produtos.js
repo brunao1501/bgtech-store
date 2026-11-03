@@ -48,7 +48,8 @@
     const list = PRODUCTS.filter(p => p.cat === c.id);
     if (!list.length) return '';
     return `<section class="st-sec" id="sec-${c.id}">
-      <div class="st-sec-head"><h2>${c.label}. <span>${c.sub}</span></h2></div>
+      <div class="st-sec-head"><h2>${c.label}. <span>${c.sub}</span></h2>
+        <div class="st-arrows"><button type="button" class="st-arrow" data-dir="-1" aria-label="Ver anteriores">‹</button><button type="button" class="st-arrow" data-dir="1" aria-label="Ver próximos">›</button></div></div>
       <div class="st-row">${list.slice().reverse().map(card).join('')}</div>
     </section>`;
   }).join('');
@@ -57,6 +58,25 @@
     const d = e.target.closest('.st-card .dot[data-src]'); if (!d) return;
     const im = d.closest('.st-card').querySelector('.st-media img'); if (im.getAttribute('src') !== d.dataset.src) im.src = d.dataset.src;
   });
+  // Setas da fileira (computador)
+  function syncArrows(row) {
+    const head = row.previousElementSibling; if (!head) return;
+    const [prev, next] = head.querySelectorAll('.st-arrow');
+    if (!prev) return;
+    prev.disabled = row.scrollLeft < 8;
+    next.disabled = row.scrollLeft + row.clientWidth > row.scrollWidth - 8;
+    head.querySelector('.st-arrows').hidden = row.scrollWidth <= row.clientWidth + 8;
+  }
+  document.addEventListener('click', e => {
+    const b = e.target.closest('.st-arrow'); if (!b) return;
+    const row = b.closest('.st-sec, .bp-related').querySelector('.st-row');
+    row.scrollBy({ left: Number(b.dataset.dir) * row.clientWidth * 0.85, behavior: 'smooth' });
+  });
+  const watchRows = () => document.querySelectorAll('.st-row').forEach(r => {
+    syncArrows(r);
+    if (!r.dataset.w) { r.dataset.w = 1; r.addEventListener('scroll', () => syncArrows(r), { passive: true }); }
+  });
+  window.addEventListener('resize', watchRows); window.addEventListener('load', watchRows); setTimeout(watchRows, 0);
   document.querySelectorAll('.st-updated').forEach(el => el.textContent = window.BG_UPDATED || '');
 
   /* ---------- Página do produto ---------- */

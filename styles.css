@@ -73,3 +73,11 @@ footer{padding:52px clamp(24px,6vw,96px) 32px;border-top:1px solid var(--line);b
   .steps-editorial{grid-template-columns:1fr}.step-card{min-height:auto}.step-card>span{margin-bottom:28px}.confidence-grid{grid-template-columns:1fr 1fr;gap:10px}.confidence-grid article{padding:27px 20px;min-height:165px}.confidence-grid strong{font-size:42px}.confidence-grid span{font-size:12px}.deliveries{padding:84px 20px}.deliveries-flow{gap:9px 12px}.final-cta{padding:92px 20px}.footer-main{flex-direction:column}.footer-links{flex-direction:column;gap:9px}.footer-legal{flex-direction:column}.whatsapp-fab{right:14px;bottom:14px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.hero-product-img,.story-device,.btn,.whatsapp-fab{transition:none}}
+
+/* Páginas internas */
+.desktop-nav a[aria-current="page"],.mobile-menu a[aria-current="page"]{color:var(--blue)}
+.page-hero{padding:96px clamp(24px,6vw,96px) 40px;max-width:1100px}
+.page-hero h1{font-size:clamp(44px,5.6vw,84px);line-height:1.02;letter-spacing:-.055em;margin-bottom:22px;font-weight:600}
+.page-hero h1 span{color:var(--blue)}
+.page-hero p{color:var(--muted);font-size:clamp(17px,1.5vw,20px);line-height:1.65;max-width:720px;margin:0}
+@media(max-width:720px){.page-hero{padding:60px 22px 20px}.page-hero h1{font-size:42px}}
