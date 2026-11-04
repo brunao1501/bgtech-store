@@ -28,7 +28,7 @@
   });
 
   // Kits: peças se juntam quando aparecem
-  const kits = document.querySelectorAll('.h-kit');
+  const kits = document.querySelectorAll('.h-kit, .h-and');
   if (reduce || !('IntersectionObserver' in window)) kits.forEach(k => k.classList.add('in'));
   else {
     const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .35 });
