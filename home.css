@@ -52,6 +52,20 @@
 .h-dots span{width:8px;height:8px;border-radius:50%;background:#c7ced8;transition:background .3s,transform .3s}
 .h-dots span.is-on{background:var(--blue);transform:scale(1.4)}
 
+/* Android */
+.h-android{max-width:1600px;padding-bottom:40px}
+.h-and-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.h-and{display:flex;flex-direction:column;align-items:center;text-align:center;background:#f5f5f7;border-radius:28px;padding:34px 24px 30px;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.h-and:hover{transform:translateY(-6px);box-shadow:0 24px 60px rgba(16,40,70,.12)}
+.h-and-art{height:280px;width:100%;display:flex;align-items:center;justify-content:center;margin-bottom:18px;overflow:hidden}
+.h-and-art img{height:100%;width:90%;object-fit:contain;filter:drop-shadow(0 24px 26px rgba(16,40,70,.2));opacity:0;transform:translateY(60px) rotate(-6deg) scale(.9);transition:transform 1s cubic-bezier(.2,.8,.2,1),opacity .8s}
+.h-and:nth-child(2) .h-and-art img{transition-delay:.12s}.h-and:nth-child(3) .h-and-art img{transition-delay:.24s}
+.h-and.in .h-and-art img{opacity:1;transform:none}
+.h-and .eyebrow{margin-bottom:6px}
+.h-and h3{font-size:28px;letter-spacing:-.04em;margin:0 0 8px}
+.h-and .h-price{font-size:15px;margin:0}
+.h-and-more{text-align:center;margin:30px 0 0}
+
 /* 3. Kits */
 .h-kits{max-width:1600px}
 .h-kit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -74,7 +88,7 @@
   .h-hero{grid-template-columns:1fr;min-height:0;max-height:none;padding-top:50px;text-align:center}
   .h-hero-copy{margin:0 auto}.h-hero-copy p{margin:0 auto}.h-hero-copy .hero-actions{justify-content:center}
   .h-hero-stage{height:420px;min-height:0}
-  .h-kit-grid{grid-template-columns:1fr 1fr}
+  .h-kit-grid,.h-and-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:720px){
   .h-hero{padding:36px 22px 70px;gap:0}
@@ -88,11 +102,12 @@
   .h-slide h2{font-size:44px;margin:6px 0 10px}
   .h-sub{font-size:16px}
   .h-dots{right:10px}
-  .h-kit-grid{grid-template-columns:1fr}
+  .h-kit-grid,.h-and-grid{grid-template-columns:1fr}
+  .h-and-art{height:230px}
   .h-kit-art{height:210px}.h-kit-art img{height:170px}
 }
 @media(prefers-reduced-motion:reduce){
   .home *{animation:none!important;transition:none!important}
-  .h-k-a,.h-k-b{opacity:1;transform:none}.h-plus{transform:none}
+  .h-k-a,.h-k-b,.h-and-art img{opacity:1;transform:none}.h-plus{transform:none}
   .h-launch{height:auto}.h-launch-sticky{position:relative;height:auto;padding:80px 22px}
 }

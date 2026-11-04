@@ -3,15 +3,17 @@
   const NUMBER = typeof WHATSAPP_NUMBER !== 'undefined' ? WHATSAPP_NUMBER : '5511920193443';
   const CATS = [
     { id: 'iphone', label: 'iPhone', sub: 'Encontre o seu.' },
+    { id: 'android', label: 'Android', sub: 'Xiaomi, Redmi, POCO e Realme.' },
     { id: 'watch', label: 'Apple Watch', sub: 'Saúde e treino no pulso.' },
     { id: 'ipad', label: 'iPad', sub: 'Leve, versátil e poderoso.' },
     { id: 'mac', label: 'Mac', sub: 'Para estudar, trabalhar e criar.' }
   ];
   const CAT = Object.fromEntries(CATS.map(c => [c.id, c]));
-  const FALLBACK = { iphone: 'assets/smartphone-fallback.png', watch: 'assets/smartwatch-bgtech-v42.png', ipad: 'assets/tablet-clean-v41.png', mac: 'assets/macbook-fallback.png' };
-  const HEX = {"Azul":"#7a9cc9","Preto":"#2b2c30","Meia-noite":"#2c3340","Prateado":"#e3e4e6","Ultramarino":"#5a6fe6","Verde-acinzentado":"#7fb1ac","Estelar":"#f3ece0","Rosa":"#f4bfcc","Deserto":"#c8a985","Titânio natural":"#bab4aa","Dourado":"#e8d6aa","Lavanda":"#cdc1ea","Verde":"#adc9a9","Laranja-cósmico":"#e9783a","Azul-intenso":"#2a3f66","Glacial":"#cfe0ee","Bordô":"#6b1f2e","Ouro-rosa":"#e8c4b8","Preto-espacial":"#2a2b2e","Preto brilhante":"#111113","Cinza-espacial":"#6a6b70","Roxo":"#ab97d4","Blush":"#f0c9c0","Índigo":"#3b3f7a","Cítrico":"#e3e07a","Azul-céu":"#a8c6e2","Céu noturno":"#2b3a52","Branco estelar":"#f2f0eb"};
+  const FALLBACK = { android: 'assets/smartphone-fallback.png', iphone: 'assets/smartphone-fallback.png', watch: 'assets/smartwatch-bgtech-v42.png', ipad: 'assets/tablet-clean-v41.png', mac: 'assets/macbook-fallback.png' };
+  const HEX = {"Azul":"#7a9cc9","Preto":"#2b2c30","Meia-noite":"#2c3340","Prateado":"#e3e4e6","Ultramarino":"#5a6fe6","Verde-acinzentado":"#7fb1ac","Estelar":"#f3ece0","Rosa":"#f4bfcc","Deserto":"#c8a985","Titânio natural":"#bab4aa","Dourado":"#e8d6aa","Lavanda":"#cdc1ea","Verde":"#adc9a9","Laranja-cósmico":"#e9783a","Azul-intenso":"#2a3f66","Glacial":"#cfe0ee","Bordô":"#6b1f2e","Ouro-rosa":"#e8c4b8","Preto-espacial":"#2a2b2e","Preto brilhante":"#111113","Cinza-espacial":"#6a6b70","Roxo":"#ab97d4","Blush":"#f0c9c0","Índigo":"#3b3f7a","Cítrico":"#e3e07a","Azul-céu":"#a8c6e2","Céu noturno":"#2b3a52","Branco estelar":"#f2f0eb","Branco":"#f4f4f2","Cinza":"#8a8d93","Natural":"#d9cfc1"};
   const OPT_TITLE = {
     iphone: 'Armazenamento. <span>Quanto espaço você precisa?</span>',
+    android: 'Memória e armazenamento. <span>Escolha a sua versão.</span>',
     ipad: 'Armazenamento. <span>Quanto espaço você precisa?</span>',
     watch: 'Modelo e tamanho. <span>Qual fica melhor no seu pulso?</span>',
     mac: 'Configuração. <span>Chip, memória e armazenamento.</span>'
